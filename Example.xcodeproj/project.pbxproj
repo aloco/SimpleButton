@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */; };
-		A93CA2551AC2B89300BD5B22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2541AC2B89300BD5B22 /* ViewController.swift */; };
-		A93CA2581AC2B89300BD5B22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93CA2561AC2B89300BD5B22 /* Main.storyboard */; };
 		A93CA25A1AC2B89300BD5B22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93CA2591AC2B89300BD5B22 /* Images.xcassets */; };
 		A93CA25D1AC2B89300BD5B22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93CA25B1AC2B89300BD5B22 /* LaunchScreen.xib */; };
 		A93CA2691AC2B89300BD5B22 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2681AC2B89300BD5B22 /* ExampleTests.swift */; };
@@ -17,6 +15,9 @@
 		A93CA28E1AC2B8A900BD5B22 /* SimpleButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; };
 		A93CA28F1AC2B8A900BD5B22 /* SimpleButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A93CA2981AC2B91400BD5B22 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */; };
+		A9C97EEE1AC45CCF005C14E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */; };
+		A9C97EF01AC45D9F005C14E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2541AC2B89300BD5B22 /* ViewController.swift */; };
+		A9C97EF21AC45EC0005C14E0 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,6 @@
 		A93CA2511AC2B89300BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93CA2541AC2B89300BD5B22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A93CA2571AC2B89300BD5B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A93CA2591AC2B89300BD5B22 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A93CA25C1AC2B89300BD5B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A93CA2621AC2B89300BD5B22 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +67,8 @@
 		A93CA2891AC2B8A900BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93CA28A1AC2B8A900BD5B22 /* SimpleButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonTests.swift; sourceTree = "<group>"; };
 		A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
+		A9C97EED1AC45CCF005C14E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +123,11 @@
 			children = (
 				A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */,
 				A93CA2541AC2B89300BD5B22 /* ViewController.swift */,
-				A93CA2561AC2B89300BD5B22 /* Main.storyboard */,
 				A93CA2591AC2B89300BD5B22 /* Images.xcassets */,
 				A93CA25B1AC2B89300BD5B22 /* LaunchScreen.xib */,
 				A93CA2501AC2B89300BD5B22 /* Supporting Files */,
+				A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */,
+				A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -304,7 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93CA2581AC2B89300BD5B22 /* Main.storyboard in Resources */,
+				A9C97EEE1AC45CCF005C14E0 /* Main.storyboard in Resources */,
 				A93CA25D1AC2B89300BD5B22 /* LaunchScreen.xib in Resources */,
 				A93CA25A1AC2B89300BD5B22 /* Images.xcassets in Resources */,
 			);
@@ -331,8 +334,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93CA2551AC2B89300BD5B22 /* ViewController.swift in Sources */,
+				A9C97EF21AC45EC0005C14E0 /* PrimaryButton.swift in Sources */,
 				A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */,
+				A9C97EF01AC45D9F005C14E0 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,20 +372,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A93CA2561AC2B89300BD5B22 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A93CA2571AC2B89300BD5B22 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A93CA25B1AC2B89300BD5B22 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A93CA25C1AC2B89300BD5B22 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9C97EED1AC45CCF005C14E0 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -475,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -485,6 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -539,6 +545,7 @@
 				);
 				INFOPLIST_FILE = SimpleButton/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -559,6 +566,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SimpleButton/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

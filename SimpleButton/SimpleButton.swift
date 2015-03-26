@@ -32,6 +32,8 @@ public class SimpleButton: UIButton {
         }
     }
     
+    // MARK: Initializer
+    
     required override public init(frame: CGRect) {
         super.init(frame: frame)
         configurate()
@@ -42,31 +44,67 @@ public class SimpleButton: UIButton {
         configurate()
     }
 
-     override public func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         configurate()
     }
+    
+    // MARK: Configuration
 
-    func configurate() {
+    public func configurate() {
         setTranslatesAutoresizingMaskIntoConstraints(false)
         buttonScales[UIControlState.Normal.rawValue] = 1.0
     }
+    
+    
+    public func setScale(scale: CGFloat, forState state: UIControlState, animated: Bool = false) {
+        buttonScales[state.rawValue] = scale
         
+        if state == self.state && transform.a != scale && transform.b != scale {
+            changeScaleForStateChangeAnimated(animated)
+        }
+    }
+    
+    public func setBackgroundColor(color: UIColor, forState state: UIControlState, animated: Bool = false) {
+        backgroundColors[state.rawValue] = color
+        if state == self.state && backgroundColor != color {
+            changeBackgroundColorForStateChangeAnimated(animated)
+        }
+    }
+    
+    public func setBorderColor(color: UIColor, forState state: UIControlState, animated: Bool = false) {
+        borderColors[state.rawValue] = color
+        if state == self.state && UIColor(CGColor: layer.borderColor) != color {
+            changeBorderColorForStateChangeAnimated(animated)
+        }
+    }
+
+    
+    // MARK: Helper
+    
+    
     public func setTitleImageSpacing(spacing: CGFloat) {
         imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing);
         titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0);
     }
 
-    public func setScale(scale: CGFloat, forState state: UIControlState) {
-        setScale(scale, forState: state, animated: animateStateChange)
+    public func updateForStateChange(animated: Bool) {
+        changeBackgroundColorForStateChangeAnimated(animated)
+        changeBorderColorForStateChangeAnimated(animated)
+        changeScaleForStateChangeAnimated(animated)
     }
     
-    public func setScale(scale: CGFloat, forState state: UIControlState, animated: Bool) {
-        buttonScales[state.rawValue] = scale
-        
-        if state != self.state && transform.a != scale && transform.b != scale {
-            changeScaleForStateChangeAnimated(animated)
+    // MARK: Animations
+    
+    func setEnabled(enabled: Bool, animated: Bool) {
+        if !self.shouldDimWhenDisabled {
+            return
         }
+        let alphaValue: CGFloat = enabled ? 1 : 0.5
+        let animations = {
+            self.alpha = alphaValue
+        }
+        animated ? UIView.animateWithDuration(animationDuration, animations: animations) : animations()
     }
     
     func changeScaleForStateChangeAnimated(animated: Bool) {
@@ -78,23 +116,6 @@ public class SimpleButton: UIButton {
         }
     }
 
-    public func updateForStateChange(animated: Bool) {
-        changeBackgroundColorForStateChangeAnimated(animated)
-        changeBorderColorForStateChangeAnimated(animated)
-        changeScaleForStateChangeAnimated(animated)
-    }
-    
-    public func setBackgroundColor(color: UIColor, forState state: UIControlState) {
-        setBackgroundColor(color, forState: state, animated: animateStateChange)
-    }
-
-    public func setBackgroundColor(color: UIColor, forState state: UIControlState, animated: Bool) {
-        backgroundColors[state.rawValue] = color
-        if state != self.state && backgroundColor != color {
-            changeBackgroundColorForStateChangeAnimated(animated)
-        }
-    }
-    
     func changeBackgroundColorForStateChangeAnimated(animated: Bool) {
         if let bColor = backgroundColors[self.state.rawValue] ?? backgroundColors[UIControlState.Normal.rawValue] {
             if bColor != UIColor(CGColor: layer.backgroundColor ?? UIColor.clearColor().CGColor) {
@@ -103,17 +124,6 @@ public class SimpleButton: UIButton {
                 }
                 layer.backgroundColor = bColor.CGColor
             }
-        }
-    }
-    
-    public func setBorderColor(color: UIColor, forState state: UIControlState) {
-        setBorderColor(color, forState: state, animated: animateStateChange)
-    }
-    
-    public func setBorderColor(color: UIColor, forState state: UIControlState, animated: Bool) {
-        borderColors[state.rawValue] = color
-        if state != self.state && UIColor(CGColor: layer.borderColor) != color {
-            changeBorderColorForStateChangeAnimated(animated)
         }
     }
     
@@ -126,18 +136,6 @@ public class SimpleButton: UIButton {
                 layer.borderColor = bColor.CGColor
             }
         }
-    }
-    
-    
-    func setEnabled(enabled: Bool, animated: Bool) {
-        if !self.shouldDimWhenDisabled {
-            return
-        }
-        let alphaValue: CGFloat = enabled ? 1 : 0.5
-        let animations = {
-            self.alpha = alphaValue
-        }
-        animated ? UIView.animateWithDuration(animationDuration, animations: animations) : animations()
     }
     
     func animateLayer(layer: CALayer, fromColor: CGColorRef?, toColor: CGColorRef, forKey key: String) {
