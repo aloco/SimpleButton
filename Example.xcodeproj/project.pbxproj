@@ -15,6 +15,7 @@
 		A93CA28E1AC2B8A900BD5B22 /* SimpleButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; };
 		A93CA28F1AC2B8A900BD5B22 /* SimpleButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A93CA2981AC2B91400BD5B22 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */; };
+		A9C6EC7B1AD1A35900C4CB79 /* UpperCaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */; };
 		A9C97EEE1AC45CCF005C14E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */; };
 		A9C97EF01AC45D9F005C14E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2541AC2B89300BD5B22 /* ViewController.swift */; };
 		A9C97EF21AC45EC0005C14E0 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */; };
@@ -67,6 +68,7 @@
 		A93CA2891AC2B8A900BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93CA28A1AC2B8A900BD5B22 /* SimpleButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonTests.swift; sourceTree = "<group>"; };
 		A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
+		A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpperCaseButton.swift; sourceTree = "<group>"; };
 		A9C97EED1AC45CCF005C14E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				A93CA2501AC2B89300BD5B22 /* Supporting Files */,
 				A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */,
 				A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */,
+				A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C6EC7B1AD1A35900C4CB79 /* UpperCaseButton.swift in Sources */,
 				A9C97EF21AC45EC0005C14E0 /* PrimaryButton.swift in Sources */,
 				A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */,
 				A9C97EF01AC45D9F005C14E0 /* ViewController.swift in Sources */,

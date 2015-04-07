@@ -11,19 +11,23 @@ import SimpleButton
 
 class ViewController: UIViewController {
 
-
-    @IBOutlet weak var borderButton: SimpleButton!
+    @IBOutlet weak var borderButton: UpperCaseButton!
     @IBOutlet weak var disabledButton: SimpleButton!
     @IBOutlet weak var scaledButton: SimpleButton!
     @IBOutlet weak var primaryButton: PrimaryButton!
     
+    var simpleButton: SimpleButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         primaryButton.setTitle("Make your own subclass", forState: UIControlState.Normal)
         
-        borderButton.layer.borderWidth = 4.0
+        borderButton.setBorderWidth(4.0, forState: .Normal)
+        borderButton.setBorderWidth(2.0, forState: .Highlighted)
+        borderButton.setCornerRadius(10, forState: .Normal)
+        borderButton.setCornerRadius(20, forState: .Highlighted)
+
         borderButton.setTitle("borderColor", forState: UIControlState.Normal)
         borderButton.setBorderColor(UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1.0), forState: UIControlState.Normal)
         borderButton.setBorderColor(UIColor(red: 149/255, green: 165/255, blue: 166/255, alpha: 1.0), forState: UIControlState.Highlighted)
