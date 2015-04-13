@@ -1,7 +1,7 @@
 # Simple Button
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
 
-Simple UIButton subclass with animated, state-aware attributes. Easy to subclass and configurate!
+Simple UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!
 
 <center>
 ![Sample](resources/sample.gif)
@@ -9,13 +9,13 @@ Simple UIButton subclass with animated, state-aware attributes. Easy to subclass
 
 ## Usage
 
-Just make your own subclass and define your button by overriding `configurate`. 
+Just make your own subclass and define your button by overriding `configure`. 
 
 ```swift
 
 class PrimaryButton: SimpleButton {
-    override func configurate() {
-        super.configurate()
+    override func configure() {
+        super.configure()
 		setBorderWidth(4.0, forState: .Normal)
         setBackgroundColor(UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0), forState: .Normal)
         setBackgroundColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), forState: .Highlighted)
@@ -31,7 +31,7 @@ Just use your new button within xib´s and storyboards or instantiate them from 
 ```
 let primaryButton = PrimaryButton.buttonWithType(.Custom)
 ```
-You can also configurate them on the fly
+You can also configure them on the fly
 ```
 let awesomeButton = SimpleButton.buttonWithType(.Custom)
 awesomeButton.setBorderWidth(2.0, forState: .Normal)
