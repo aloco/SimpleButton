@@ -4,7 +4,7 @@
 Simple UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!
 
 <center>
-![Sample](resources/example.gif)
+![Sample](Resources/example.gif)
 </center>
 
 ## Usage
