@@ -3,6 +3,10 @@
 
 Simple UIButton subclass with animated, state-aware attributes. Easy to subclass and configurate!
 
+<center>
+![Sample](resources/sample.gif)
+</center>
+
 ## Usage
 
 Just make your own subclass and define your button by overriding `configurate`. 

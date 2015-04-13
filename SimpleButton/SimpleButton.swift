@@ -45,22 +45,22 @@ public class SimpleButton: UIButton {
     
     required override public init(frame: CGRect) {
         super.init(frame: frame)
-        configurate()
+        configure()
     }
 
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        configurate()
+        configure()
     }
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        configurate()
+        configure()
     }
     
     // MARK: Configuration
 
-    public func configurate() {
+    public func configure() {
         setTranslatesAutoresizingMaskIntoConstraints(false)
         buttonScales[UIControlState.Normal.rawValue] = 1.0
     }

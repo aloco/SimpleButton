@@ -10,8 +10,8 @@ import SimpleButton
 
 class PrimaryButton: SimpleButton {
     
-    override func configurate() {
-        super.configurate()
+    override func configure() {
+        super.configure()
         
         setBorderWidth(4.0, forState: .Normal)
         setBorderWidth(3.0, forState: .Highlighted)
