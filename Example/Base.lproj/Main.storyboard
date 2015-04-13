@@ -16,41 +16,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0o-XC-1hX" customClass="SimpleButton" customModule="SimpleButton">
-                                <rect key="frame" x="150" y="110" width="300" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scale" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eE8-ia-RTO">
+                                <rect key="frame" x="20" y="40" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEo-df-f2Q" customClass="ScaleButton" customModule="Example">
+                                <rect key="frame" x="20" y="71" width="560" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="bH7-Qz-dZB"/>
-                                    <constraint firstAttribute="height" constant="50" id="nVL-ll-VsT"/>
+                                    <constraint firstAttribute="height" constant="45" id="MMp-Pn-hhx"/>
                                 </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8E-EV-PAV" customClass="PrimaryButton" customModule="Example">
-                                <rect key="frame" x="150" y="180" width="300" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="backgroundColor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNB-76-TBK">
+                                <rect key="frame" x="20" y="126" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t43-yN-ltM" customClass="BackgroundColorButton" customModule="Example">
+                                <rect key="frame" x="20" y="157" width="560" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="my7-Rx-7Yn"/>
-                                    <constraint firstAttribute="height" constant="50" id="yjH-SI-Hal"/>
+                                    <constraint firstAttribute="height" constant="45" id="h7r-bn-ygn"/>
                                 </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQc-dA-o44" customClass="SimpleButton" customModule="SimpleButton">
-                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="borderWidth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCk-Jq-ijn">
+                                <rect key="frame" x="20" y="212" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3f-CL-nXX" customClass="BorderWidthButton" customModule="Example">
+                                <rect key="frame" x="20" y="243" width="560" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="BEZ-CI-7WX"/>
-                                    <constraint firstAttribute="width" constant="100" id="F6p-qY-pxS"/>
+                                    <constraint firstAttribute="height" constant="45" id="M7r-qC-Sy2"/>
                                 </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvD-l5-dOk" customClass="UpperCaseButton" customModule="Example">
-                                <rect key="frame" x="150" y="40" width="300" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="borderColor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epQ-dk-zJW">
+                                <rect key="frame" x="20" y="298" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cornerRadius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFU-Ed-8og">
+                                <rect key="frame" x="20" y="384" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWl-vM-4gd" customClass="CornerRadiusButton" customModule="Example">
+                                <rect key="frame" x="20" y="415" width="560" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="K89-qr-jyC"/>
-                                    <constraint firstAttribute="height" constant="50" id="KaH-bj-ClV"/>
+                                    <constraint firstAttribute="height" constant="45" id="Wll-SE-JMH"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-Ci-qgj" customClass="BorderColorButton" customModule="Example">
+                                <rect key="frame" x="20" y="329" width="560" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ey4-3l-cTN"/>
                                 </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,22 +94,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AQc-dA-o44" firstAttribute="top" secondItem="Y8E-EV-PAV" secondAttribute="bottom" constant="20" id="3FU-Q3-Cvb"/>
-                            <constraint firstAttribute="centerX" secondItem="AQc-dA-o44" secondAttribute="centerX" id="5zC-m3-8vv"/>
-                            <constraint firstAttribute="centerX" secondItem="Y8E-EV-PAV" secondAttribute="centerX" id="F8j-8M-OeJ"/>
-                            <constraint firstItem="cvD-l5-dOk" firstAttribute="top" secondItem="rqZ-0k-agv" secondAttribute="bottom" constant="20" id="IGL-QJ-ruH"/>
-                            <constraint firstAttribute="centerX" secondItem="d0o-XC-1hX" secondAttribute="centerX" id="KMQ-OS-Fkm"/>
-                            <constraint firstItem="Y8E-EV-PAV" firstAttribute="top" secondItem="d0o-XC-1hX" secondAttribute="bottom" constant="20" id="dbc-fG-uFl"/>
-                            <constraint firstItem="d0o-XC-1hX" firstAttribute="top" secondItem="cvD-l5-dOk" secondAttribute="bottom" constant="20" id="fGw-Ef-gBM"/>
-                            <constraint firstAttribute="centerX" secondItem="cvD-l5-dOk" secondAttribute="centerX" id="ke8-Ac-lqt"/>
+                            <constraint firstItem="kFU-Ed-8og" firstAttribute="top" secondItem="k0b-Ci-qgj" secondAttribute="bottom" constant="10" id="3OV-0e-IHx"/>
+                            <constraint firstItem="k0b-Ci-qgj" firstAttribute="top" secondItem="epQ-dk-zJW" secondAttribute="bottom" constant="10" id="7Lh-86-Q6r"/>
+                            <constraint firstItem="k0b-Ci-qgj" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="7yi-nz-BDD"/>
+                            <constraint firstItem="D3f-CL-nXX" firstAttribute="top" secondItem="HCk-Jq-ijn" secondAttribute="bottom" constant="10" id="8ff-8j-PXj"/>
+                            <constraint firstAttribute="trailing" secondItem="k0b-Ci-qgj" secondAttribute="trailing" constant="20" id="9rh-yX-Exn"/>
+                            <constraint firstItem="DEo-df-f2Q" firstAttribute="top" secondItem="eE8-ia-RTO" secondAttribute="bottom" constant="10" id="FK5-lz-ZG4"/>
+                            <constraint firstItem="DEo-df-f2Q" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="JIp-RX-lF3"/>
+                            <constraint firstItem="eE8-ia-RTO" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="Jeo-YC-oSk"/>
+                            <constraint firstItem="BWl-vM-4gd" firstAttribute="top" secondItem="kFU-Ed-8og" secondAttribute="bottom" constant="10" id="Llh-k5-xFk"/>
+                            <constraint firstItem="D3f-CL-nXX" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="RQN-pA-1fY"/>
+                            <constraint firstItem="epQ-dk-zJW" firstAttribute="top" secondItem="D3f-CL-nXX" secondAttribute="bottom" constant="10" id="RSU-PT-URb"/>
+                            <constraint firstItem="t43-yN-ltM" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="WgK-Zz-thl"/>
+                            <constraint firstItem="eE8-ia-RTO" firstAttribute="top" secondItem="rqZ-0k-agv" secondAttribute="bottom" constant="20" id="b4F-5D-6Wq"/>
+                            <constraint firstAttribute="trailing" secondItem="BWl-vM-4gd" secondAttribute="trailing" constant="20" id="fc5-Rg-Z8Q"/>
+                            <constraint firstItem="qNB-76-TBK" firstAttribute="top" secondItem="DEo-df-f2Q" secondAttribute="bottom" constant="10" id="gAi-Ih-ZrQ"/>
+                            <constraint firstItem="HCk-Jq-ijn" firstAttribute="top" secondItem="t43-yN-ltM" secondAttribute="bottom" constant="10" id="hMm-8s-d36"/>
+                            <constraint firstItem="kFU-Ed-8og" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="j7G-kA-bYd"/>
+                            <constraint firstAttribute="trailing" secondItem="t43-yN-ltM" secondAttribute="trailing" constant="20" id="kEC-zn-2nF"/>
+                            <constraint firstItem="t43-yN-ltM" firstAttribute="top" secondItem="qNB-76-TBK" secondAttribute="bottom" constant="10" id="m5E-je-gW7"/>
+                            <constraint firstAttribute="trailing" secondItem="DEo-df-f2Q" secondAttribute="trailing" constant="20" id="nYl-YW-Wee"/>
+                            <constraint firstItem="epQ-dk-zJW" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="qL0-GC-YHw"/>
+                            <constraint firstItem="BWl-vM-4gd" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="tKc-3W-hK0"/>
+                            <constraint firstItem="qNB-76-TBK" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="ujU-wr-myo"/>
+                            <constraint firstItem="HCk-Jq-ijn" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="wUv-wo-17R"/>
+                            <constraint firstAttribute="trailing" secondItem="D3f-CL-nXX" secondAttribute="trailing" constant="20" id="wXZ-3B-gzT"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="borderButton" destination="cvD-l5-dOk" id="gzm-KL-AS2"/>
-                        <outlet property="disabledButton" destination="d0o-XC-1hX" id="ux4-OC-YFm"/>
-                        <outlet property="primaryButton" destination="Y8E-EV-PAV" id="jDc-z8-e0I"/>
-                        <outlet property="scaledButton" destination="AQc-dA-o44" id="wwe-fn-5VE"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeF-Gl-7wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

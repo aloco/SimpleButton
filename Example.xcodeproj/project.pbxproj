@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92045E61AD5803900401655 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92045E51AD5803900401655 /* CustomButtons.swift */; };
 		A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */; };
 		A93CA25A1AC2B89300BD5B22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93CA2591AC2B89300BD5B22 /* Images.xcassets */; };
 		A93CA25D1AC2B89300BD5B22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93CA25B1AC2B89300BD5B22 /* LaunchScreen.xib */; };
@@ -53,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A92045E51AD5803900401655 /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		A93CA24D1AC2B89300BD5B22 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93CA2511AC2B89300BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */,
 				A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */,
 				A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */,
+				A92045E51AD5803900401655 /* CustomButtons.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				A9C97EF21AC45EC0005C14E0 /* PrimaryButton.swift in Sources */,
 				A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */,
 				A9C97EF01AC45D9F005C14E0 /* ViewController.swift in Sources */,
+				A92045E61AD5803900401655 /* CustomButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -470,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
