@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D032EDC1ADD858E00991630 /* SimpleButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; };
+		4D032EE31ADD85C600991630 /* SimpleButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D032EE21ADD85C600991630 /* SimpleButtonTests.swift */; };
 		A92045E61AD5803900401655 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92045E51AD5803900401655 /* CustomButtons.swift */; };
 		A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */; };
 		A93CA25A1AC2B89300BD5B22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93CA2591AC2B89300BD5B22 /* Images.xcassets */; };
 		A93CA25D1AC2B89300BD5B22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93CA25B1AC2B89300BD5B22 /* LaunchScreen.xib */; };
-		A93CA2691AC2B89300BD5B22 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2681AC2B89300BD5B22 /* ExampleTests.swift */; };
 		A93CA27C1AC2B8A800BD5B22 /* SimpleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A93CA27B1AC2B8A800BD5B22 /* SimpleButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A93CA28E1AC2B8A900BD5B22 /* SimpleButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; };
 		A93CA28F1AC2B8A900BD5B22 /* SimpleButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,7 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A93CA2631AC2B89300BD5B22 /* PBXContainerItemProxy */ = {
+		4D032EDD1ADD858E00991630 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A93CA2451AC2B89300BD5B22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A93CA2761AC2B8A800BD5B22;
+			remoteInfo = SimpleButton;
+		};
+		4D032EE81ADD85E700991630 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A93CA2451AC2B89300BD5B22 /* Project object */;
 			proxyType = 1;
@@ -54,6 +62,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4D032ED61ADD858E00991630 /* SimpleButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D032EE21ADD85C600991630 /* SimpleButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonTests.swift; sourceTree = "<group>"; };
+		4D032EE61ADD85DB00991630 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Info.plist; path = SimpleButtonTests/Info.plist; sourceTree = "<group>"; };
 		A92045E51AD5803900401655 /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		A93CA24D1AC2B89300BD5B22 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93CA2511AC2B89300BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,14 +72,9 @@
 		A93CA2541AC2B89300BD5B22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A93CA2591AC2B89300BD5B22 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A93CA25C1AC2B89300BD5B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A93CA2621AC2B89300BD5B22 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A93CA2671AC2B89300BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A93CA2681AC2B89300BD5B22 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93CA27A1AC2B8A800BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93CA27B1AC2B8A800BD5B22 /* SimpleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
-		A93CA2891AC2B8A900BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A93CA28A1AC2B8A900BD5B22 /* SimpleButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleButtonTests.swift; sourceTree = "<group>"; };
 		A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
 		A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpperCaseButton.swift; sourceTree = "<group>"; };
 		A9C97EED1AC45CCF005C14E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,18 +82,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4D032ED31ADD858E00991630 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D032EDC1ADD858E00991630 /* SimpleButton.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A93CA24A1AC2B89300BD5B22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A93CA28E1AC2B8A900BD5B22 /* SimpleButton.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A93CA25F1AC2B89300BD5B22 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,13 +108,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D032EBF1ADD84C800991630 /* Custom Button Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */,
+				A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */,
+				A92045E51AD5803900401655 /* CustomButtons.swift */,
+			);
+			name = "Custom Button Classes";
+			sourceTree = "<group>";
+		};
+		4D032ED71ADD858E00991630 /* SimpleButtonTests */ = {
+			isa = PBXGroup;
+			children = (
+				4D032EE21ADD85C600991630 /* SimpleButtonTests.swift */,
+				4D032ED81ADD858E00991630 /* Supporting Files */,
+			);
+			path = SimpleButtonTests;
+			sourceTree = "<group>";
+		};
+		4D032ED81ADD858E00991630 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D032EE61ADD85DB00991630 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A93CA2441AC2B89300BD5B22 = {
 			isa = PBXGroup;
 			children = (
 				A93CA24F1AC2B89300BD5B22 /* Example */,
-				A93CA2651AC2B89300BD5B22 /* ExampleTests */,
 				A93CA2781AC2B8A800BD5B22 /* SimpleButton */,
-				A93CA2871AC2B8A900BD5B22 /* SimpleButtonTests */,
+				4D032ED71ADD858E00991630 /* SimpleButtonTests */,
 				A93CA24E1AC2B89300BD5B22 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,8 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				A93CA24D1AC2B89300BD5B22 /* Example.app */,
-				A93CA2621AC2B89300BD5B22 /* ExampleTests.xctest */,
 				A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */,
+				4D032ED61ADD858E00991630 /* SimpleButtonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,13 +160,11 @@
 			children = (
 				A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */,
 				A93CA2541AC2B89300BD5B22 /* ViewController.swift */,
+				A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */,
+				4D032EBF1ADD84C800991630 /* Custom Button Classes */,
+				A93CA2501AC2B89300BD5B22 /* Supporting Files */,
 				A93CA2591AC2B89300BD5B22 /* Images.xcassets */,
 				A93CA25B1AC2B89300BD5B22 /* LaunchScreen.xib */,
-				A93CA2501AC2B89300BD5B22 /* Supporting Files */,
-				A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */,
-				A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */,
-				A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */,
-				A92045E51AD5803900401655 /* CustomButtons.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -146,29 +177,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A93CA2651AC2B89300BD5B22 /* ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				A93CA2681AC2B89300BD5B22 /* ExampleTests.swift */,
-				A93CA2661AC2B89300BD5B22 /* Supporting Files */,
-			);
-			path = ExampleTests;
-			sourceTree = "<group>";
-		};
-		A93CA2661AC2B89300BD5B22 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A93CA2671AC2B89300BD5B22 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		A93CA2781AC2B8A800BD5B22 /* SimpleButton */ = {
 			isa = PBXGroup;
 			children = (
+				A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */,
 				A93CA27B1AC2B8A800BD5B22 /* SimpleButton.h */,
 				A93CA2791AC2B8A800BD5B22 /* Supporting Files */,
-				A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */,
 			);
 			path = SimpleButton;
 			sourceTree = "<group>";
@@ -177,23 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				A93CA27A1AC2B8A800BD5B22 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A93CA2871AC2B8A900BD5B22 /* SimpleButtonTests */ = {
-			isa = PBXGroup;
-			children = (
-				A93CA28A1AC2B8A900BD5B22 /* SimpleButtonTests.swift */,
-				A93CA2881AC2B8A900BD5B22 /* Supporting Files */,
-			);
-			path = SimpleButtonTests;
-			sourceTree = "<group>";
-		};
-		A93CA2881AC2B8A900BD5B22 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A93CA2891AC2B8A900BD5B22 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -212,6 +209,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4D032ED51ADD858E00991630 /* SimpleButtonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D032EDF1ADD858E00991630 /* Build configuration list for PBXNativeTarget "SimpleButtonTests" */;
+			buildPhases = (
+				4D032ED21ADD858E00991630 /* Sources */,
+				4D032ED31ADD858E00991630 /* Frameworks */,
+				4D032ED41ADD858E00991630 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D032EDE1ADD858E00991630 /* PBXTargetDependency */,
+				4D032EE91ADD85E700991630 /* PBXTargetDependency */,
+			);
+			name = SimpleButtonTests;
+			productName = SimpleButtonTests;
+			productReference = 4D032ED61ADD858E00991630 /* SimpleButtonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A93CA24C1AC2B89300BD5B22 /* Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A93CA26C1AC2B89300BD5B22 /* Build configuration list for PBXNativeTarget "Example" */;
@@ -230,24 +246,6 @@
 			productName = Example;
 			productReference = A93CA24D1AC2B89300BD5B22 /* Example.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A93CA2611AC2B89300BD5B22 /* ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A93CA26F1AC2B89300BD5B22 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
-			buildPhases = (
-				A93CA25E1AC2B89300BD5B22 /* Sources */,
-				A93CA25F1AC2B89300BD5B22 /* Frameworks */,
-				A93CA2601AC2B89300BD5B22 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A93CA2641AC2B89300BD5B22 /* PBXTargetDependency */,
-			);
-			name = ExampleTests;
-			productName = ExampleTests;
-			productReference = A93CA2621AC2B89300BD5B22 /* ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A93CA2761AC2B8A800BD5B22 /* SimpleButton */ = {
 			isa = PBXNativeTarget;
@@ -276,12 +274,12 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Andreas Tinoco Lobo";
 				TargetAttributes = {
-					A93CA24C1AC2B89300BD5B22 = {
-						CreatedOnToolsVersion = 6.3;
-					};
-					A93CA2611AC2B89300BD5B22 = {
+					4D032ED51ADD858E00991630 = {
 						CreatedOnToolsVersion = 6.3;
 						TestTargetID = A93CA24C1AC2B89300BD5B22;
+					};
+					A93CA24C1AC2B89300BD5B22 = {
+						CreatedOnToolsVersion = 6.3;
 					};
 					A93CA2761AC2B8A800BD5B22 = {
 						CreatedOnToolsVersion = 6.3;
@@ -302,13 +300,20 @@
 			projectRoot = "";
 			targets = (
 				A93CA24C1AC2B89300BD5B22 /* Example */,
-				A93CA2611AC2B89300BD5B22 /* ExampleTests */,
 				A93CA2761AC2B8A800BD5B22 /* SimpleButton */,
+				4D032ED51ADD858E00991630 /* SimpleButtonTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4D032ED41ADD858E00991630 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A93CA24B1AC2B89300BD5B22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -316,13 +321,6 @@
 				A9C97EEE1AC45CCF005C14E0 /* Main.storyboard in Resources */,
 				A93CA25D1AC2B89300BD5B22 /* LaunchScreen.xib in Resources */,
 				A93CA25A1AC2B89300BD5B22 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A93CA2601AC2B89300BD5B22 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +334,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4D032ED21ADD858E00991630 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D032EE31ADD85C600991630 /* SimpleButtonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A93CA2491AC2B89300BD5B22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,14 +351,6 @@
 				A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */,
 				A9C97EF01AC45D9F005C14E0 /* ViewController.swift in Sources */,
 				A92045E61AD5803900401655 /* CustomButtons.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A93CA25E1AC2B89300BD5B22 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A93CA2691AC2B89300BD5B22 /* ExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,10 +365,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A93CA2641AC2B89300BD5B22 /* PBXTargetDependency */ = {
+		4D032EDE1ADD858E00991630 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A93CA2761AC2B8A800BD5B22 /* SimpleButton */;
+			targetProxy = 4D032EDD1ADD858E00991630 /* PBXContainerItemProxy */;
+		};
+		4D032EE91ADD85E700991630 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A93CA24C1AC2B89300BD5B22 /* Example */;
-			targetProxy = A93CA2631AC2B89300BD5B22 /* PBXContainerItemProxy */;
+			targetProxy = 4D032EE81ADD85E700991630 /* PBXContainerItemProxy */;
 		};
 		A93CA28D1AC2B8A900BD5B22 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -399,6 +402,43 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4D032EE01ADD858E00991630 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleButtonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
+			};
+			name = Debug;
+		};
+		4D032EE11ADD858E00991630 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleButtonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
+			};
+			name = Release;
+		};
 		A93CA26A1AC2B89300BD5B22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -504,40 +544,6 @@
 			};
 			name = Release;
 		};
-		A93CA2701AC2B89300BD5B22 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
-			};
-			name = Debug;
-		};
-		A93CA2711AC2B89300BD5B22 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
-			};
-			name = Release;
-		};
 		A93CA2911AC2B8A900BD5B22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -586,6 +592,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4D032EDF1ADD858E00991630 /* Build configuration list for PBXNativeTarget "SimpleButtonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D032EE01ADD858E00991630 /* Debug */,
+				4D032EE11ADD858E00991630 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A93CA2481AC2B89300BD5B22 /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -600,15 +614,6 @@
 			buildConfigurations = (
 				A93CA26D1AC2B89300BD5B22 /* Debug */,
 				A93CA26E1AC2B89300BD5B22 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A93CA26F1AC2B89300BD5B22 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A93CA2701AC2B89300BD5B22 /* Debug */,
-				A93CA2711AC2B89300BD5B22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
