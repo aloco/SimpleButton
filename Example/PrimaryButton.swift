@@ -8,10 +8,11 @@
 
 import SimpleButton
 
+@IBDesignable
 class PrimaryButton: SimpleButton {
     
-    override func configure() {
-        super.configure()
+    override func configureButtonStyles() {
+        super.configureButtonStyles()
         
         setBorderWidth(4.0, forState: .Normal)
         setBorderWidth(3.0, forState: .Highlighted)
