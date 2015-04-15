@@ -2,7 +2,7 @@
 //  SimpleButtonTests.swift
 //  SimpleButtonTests
 //
-//  Created by Andreas Tinoco Lobo on 25.03.15.
+//  Created by Alexander Schuch on 14/04/15.
 //  Copyright (c) 2015 Andreas Tinoco Lobo. All rights reserved.
 //
 

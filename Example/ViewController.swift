@@ -11,7 +11,6 @@ import SimpleButton
 
 class ViewController: UIViewController {
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -37,6 +36,5 @@ class ViewController: UIViewController {
         awesomeButton.center = CGPointMake(view.center.x, view.frame.size.height - 90)
         awesomeButton.setTranslatesAutoresizingMaskIntoConstraints(true)
         view.addSubview(awesomeButton)
-        
     }
 }

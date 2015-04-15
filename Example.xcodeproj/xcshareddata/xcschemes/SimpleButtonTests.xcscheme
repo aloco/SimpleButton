@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A93CA2761AC2B8A800BD5B22"
-               BuildableName = "SimpleButton.framework"
-               BlueprintName = "SimpleButton"
+               BlueprintIdentifier = "4D032ED51ADD858E00991630"
+               BuildableName = "SimpleButtonTests.xctest"
+               BlueprintName = "SimpleButtonTests"
                ReferencedContainer = "container:Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A93CA2761AC2B8A800BD5B22"
-            BuildableName = "SimpleButton.framework"
-            BlueprintName = "SimpleButton"
+            BlueprintIdentifier = "4D032ED51ADD858E00991630"
+            BuildableName = "SimpleButtonTests.xctest"
+            BlueprintName = "SimpleButtonTests"
             ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,9 +61,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A93CA2761AC2B8A800BD5B22"
-            BuildableName = "SimpleButton.framework"
-            BlueprintName = "SimpleButton"
+            BlueprintIdentifier = "4D032ED51ADD858E00991630"
+            BuildableName = "SimpleButtonTests.xctest"
+            BlueprintName = "SimpleButtonTests"
             ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,15 +76,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A93CA2761AC2B8A800BD5B22"
-            BuildableName = "SimpleButton.framework"
-            BlueprintName = "SimpleButton"
-            ReferencedContainer = "container:Example.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

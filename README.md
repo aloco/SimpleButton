@@ -9,13 +9,13 @@ Simple UIButton subclass with animated, state-aware attributes. Easy to subclass
 
 ## Usage
 
-Just make your own subclass and define your button by overriding `configure`. 
+Just create your own `UIButton` subclass and configure your button attributes by overriding `configureButtonStyles`. 
 
 ```swift
-
+@IBDesignable
 class PrimaryButton: SimpleButton {
-    override func configure() {
-        super.configure()
+    override func configureButtonStyles() {
+        configureButtonStyles()
 		setBorderWidth(4.0, forState: .Normal)
         setBackgroundColor(UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0), forState: .Normal)
         setBackgroundColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), forState: .Highlighted)
@@ -24,23 +24,31 @@ class PrimaryButton: SimpleButton {
         setTitleColor(UIColor.whiteColor(), forState: .Normal)
     }
 }
-
 ```
 
-Just use your new button within xib´s and storyboards or instantiate them from code 💥
-```
-let primaryButton = PrimaryButton.buttonWithType(.Custom)
-```
-You can also configure them on the fly
-```
+### Interface Builder Support
+
+Just set the new custom button class to a button in Interface Builder's property inspector.
+
+<center>
+![Sample](Resources/property_inspector.png)
+</center>
+
+Your buttons are even rendered live within Interface Builder. ✨
+Some attributes, like corner radius, border width and border color, can be set directly from within Interface Builder.
+
+
+### Creating and configuring buttons from code
+
+You can also configure your button directly from code
+
+```swift
 let awesomeButton = SimpleButton.buttonWithType(.Custom)
 awesomeButton.setBorderWidth(2.0, forState: .Normal)
 awesomeButton.setBorderColor(UIColor.redColor(), forState: .Highlighted)
 ```
 
-
 ## Configurable attributes
-
 
 * `scale`
 * `backgroundColor`
@@ -85,10 +93,9 @@ simpleButton.setCornerRadius(10, forState: .Normal)
 simpleButton.setCornerRadius(20, forState: .Highlighted)
 ```
 
-
 ## Installation
 
-Note that SimpleButton is written in `swift 1.2` and may not be compatible with previous versions of swift
+Note that SimpleButton is written in `swift 1.2` and may not be compatible with previous versions of swift.
 
 #### Carthage
 
@@ -113,5 +120,3 @@ Just drag and drop the `SimpleButton.swift` file into  your project.
 * Create new branch to make your changes
 * Commit all your changes to your branch
 * Submit a [pull request](http://help.github.com/pull-requests/)
-
-
