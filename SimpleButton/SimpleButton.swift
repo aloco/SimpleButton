@@ -15,7 +15,6 @@ public class SimpleButton: UIButton {
 
     public var animationDuration: NSTimeInterval = 0.1
     public var animateStateChange: Bool = true
-    public var shouldDimWhenDisabled: Bool = true
     
     lazy private var backgroundColors = [ControlState: UIColor]()
     lazy private var borderColors = [ControlState: UIColor]()
@@ -25,7 +24,6 @@ public class SimpleButton: UIButton {
     
     override public var enabled: Bool {
         didSet {
-            setEnabled(enabled, animated: animateStateChange)
             updateForStateChange(animateStateChange)
         }
     }
@@ -142,17 +140,6 @@ public class SimpleButton: UIButton {
         changeScaleForStateChange(animated: animated)
         changeBorderWidthForStateChange(animated: animated)
         changeCornerRadiusForStateChange(animated: animated)
-    }
-    
-    private func setEnabled(enabled: Bool, animated: Bool = false) {
-        if !self.shouldDimWhenDisabled {
-            return
-        }
-        let alphaValue: CGFloat = enabled ? 1 : 0.5
-        let animations = {
-            self.alpha = alphaValue
-        }
-        animated ? UIView.animateWithDuration(animationDuration, animations: animations) : animations()
     }
     
     private func changeCornerRadiusForStateChange(animated: Bool = false) {

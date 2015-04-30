@@ -65,7 +65,6 @@ class BorderColorButton: SimpleButton {
 class CornerRadiusButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        
         setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
         setTitle(".Normal", forState: .Normal)
         setTitle(".Highlighted", forState: .Highlighted)

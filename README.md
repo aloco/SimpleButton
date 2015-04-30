@@ -48,6 +48,13 @@ awesomeButton.setBorderWidth(2.0, forState: .Normal)
 awesomeButton.setBorderColor(UIColor.redColor(), forState: .Highlighted)
 ```
 
+### Change animation duration
+
+```swift
+awesomeButton.animationDuration = 0.3
+```
+Default is `0.1`
+
 ## Configurable attributes
 
 * `scale`
