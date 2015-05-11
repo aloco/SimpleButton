@@ -16,8 +16,8 @@ public class SimpleButton: UIButton {
     public var animationDuration: NSTimeInterval = 0.1
     public var animateStateChange: Bool = true
     
-    lazy private var backgroundColors = [ControlState: UIColor]()
-    lazy private var borderColors = [ControlState: UIColor]()
+    lazy private var backgroundColors = [ControlState: CGColor]()
+    lazy private var borderColors = [ControlState: CGColor]()
     lazy private var buttonScales = [ControlState: CGFloat]()
     lazy private var borderWidths = [ControlState: CGFloat]()
     lazy private var cornerRadii = [ControlState: CGFloat]()
@@ -56,7 +56,9 @@ public class SimpleButton: UIButton {
     
     @IBInspectable var borderColor: UIColor? {
         didSet {
-            setBorderColor(borderColor)
+            if borderColor != nil {
+                setBorderColor(borderColor!)
+            }
         }
     }
     
@@ -92,37 +94,27 @@ public class SimpleButton: UIButton {
     
     public func setScale(scale: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
         buttonScales[state.rawValue] = scale
-        if state == self.state {
-            changeScaleForStateChange(animated: animated)
-        }
+        changeScaleForStateChange(animated: animated)
     }
     
-    public func setBackgroundColor(color: UIColor?, forState state: UIControlState = .Normal, animated: Bool = false) {
-        backgroundColors[state.rawValue] = color
-        if state == self.state {
-            changeBackgroundColorForStateChange(animated: animated)
-        }
+    public func setBackgroundColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = false) {
+        backgroundColors[state.rawValue] = color.CGColor
+        changeBackgroundColorForStateChange(animated: animated)
     }
     
     public func setBorderWidth(width: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
         borderWidths[state.rawValue] = width
-        if state == self.state {
-            changeBorderWidthForStateChange(animated: animated)
-        }
+        changeBorderWidthForStateChange(animated: animated)
     }
     
-    public func setBorderColor(color: UIColor?, forState state: UIControlState = .Normal, animated: Bool = false) {
-        borderColors[state.rawValue] = color
-        if state == self.state {
-            changeBorderColorForStateChange(animated: animated)
-        }
+    public func setBorderColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = false) {
+        borderColors[state.rawValue] = color.CGColor
+        changeBorderColorForStateChange(animated: animated)
     }
     
     public func setCornerRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
         cornerRadii[state.rawValue] = radius
-        if state == self.state {
-            changeCornerRadiusForStateChange(animated: animated)
-        }
+        changeCornerRadiusForStateChange(animated: animated)
     }
     
     // MARK: Helper
@@ -167,22 +159,22 @@ public class SimpleButton: UIButton {
 
     private func changeBackgroundColorForStateChange(animated: Bool = false) {
         if let color = backgroundColors[state.rawValue] ?? backgroundColors[UIControlState.Normal.rawValue] {
-            if color != UIColor(CGColor: layer.backgroundColor ?? UIColor.clearColor().CGColor) {
+            if layer.backgroundColor == nil || UIColor(CGColor: layer.backgroundColor!) != UIColor(CGColor: color) {
                 if animated {
-                    animateLayer(layer, from: layer.backgroundColor, to: color.CGColor, forKey: "backgroundColor")
+                    animateLayer(layer, from: layer.backgroundColor, to: color, forKey: "backgroundColor")
                 }
-                layer.backgroundColor = color.CGColor
+                layer.backgroundColor = color
             }
         }
     }
     
     private func changeBorderColorForStateChange(animated: Bool = false) {
         if let color = borderColors[state.rawValue] ?? borderColors[UIControlState.Normal.rawValue] {
-            if color != UIColor(CGColor: layer.borderColor ?? UIColor.clearColor().CGColor) {
+            if layer.backgroundColor == nil || UIColor(CGColor: layer.borderColor!) != UIColor(CGColor: color) {
                 if animated {
-                    animateLayer(layer, from: layer.borderColor, to: color.CGColor, forKey: "borderColor")
+                    animateLayer(layer, from: layer.borderColor, to: color, forKey: "borderColor")
                 }
-                layer.borderColor = color.CGColor
+                layer.borderColor = color
             }
         }
     }
