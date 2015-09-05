@@ -104,6 +104,8 @@ simpleButton.setCornerRadius(20, forState: .Highlighted)
 
 Note that SimpleButton is written in `swift 1.2` and may not be compatible with previous versions of swift.
 
+For usage with `swift 2.0`, take the corresponding branch.
+
 #### Carthage
 
 Add the following line to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).

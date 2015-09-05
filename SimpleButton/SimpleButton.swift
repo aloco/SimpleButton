@@ -70,7 +70,7 @@ public class SimpleButton: UIButton {
         configureButtonStyles()
     }
 
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureButtonStyles()
     }
@@ -88,33 +88,33 @@ public class SimpleButton: UIButton {
     // MARK: Configuration
 
     public func configureButtonStyles() {
-        setTranslatesAutoresizingMaskIntoConstraints(false)
+        translatesAutoresizingMaskIntoConstraints = false
         buttonScales[UIControlState.Normal.rawValue] = 1.0
     }
     
     public func setScale(scale: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
         buttonScales[state.rawValue] = scale
-        changeScaleForStateChange(animated: animated)
+        changeScaleForStateChange(animated)
     }
     
     public func setBackgroundColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = false) {
         backgroundColors[state.rawValue] = color.CGColor
-        changeBackgroundColorForStateChange(animated: animated)
+        changeBackgroundColorForStateChange(animated)
     }
     
     public func setBorderWidth(width: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
         borderWidths[state.rawValue] = width
-        changeBorderWidthForStateChange(animated: animated)
+        changeBorderWidthForStateChange(animated)
     }
     
     public func setBorderColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = false) {
         borderColors[state.rawValue] = color.CGColor
-        changeBorderColorForStateChange(animated: animated)
+        changeBorderColorForStateChange(animated)
     }
     
     public func setCornerRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
         cornerRadii[state.rawValue] = radius
-        changeCornerRadiusForStateChange(animated: animated)
+        changeCornerRadiusForStateChange(animated)
     }
     
     // MARK: Helper
@@ -127,11 +127,11 @@ public class SimpleButton: UIButton {
     // MARK: Private Animation Helpers
     
     private func updateForStateChange(animated: Bool) {
-        changeBackgroundColorForStateChange(animated: animated)
-        changeBorderColorForStateChange(animated: animated)
-        changeScaleForStateChange(animated: animated)
-        changeBorderWidthForStateChange(animated: animated)
-        changeCornerRadiusForStateChange(animated: animated)
+        changeBackgroundColorForStateChange(animated)
+        changeBorderColorForStateChange(animated)
+        changeScaleForStateChange(animated)
+        changeBorderWidthForStateChange(animated)
+        changeCornerRadiusForStateChange(animated)
     }
     
     private func changeCornerRadiusForStateChange(animated: Bool = false) {
@@ -190,7 +190,7 @@ public class SimpleButton: UIButton {
         }
     }
     
-    private func animateLayer(layer: CALayer, from: AnyObject, to: AnyObject, forKey key: String) {
+    private func animateLayer(layer: CALayer, from: AnyObject?, to: AnyObject, forKey key: String) {
         let animation = CABasicAnimation()
         animation.fromValue = from
         animation.toValue = to
