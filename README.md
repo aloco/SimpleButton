@@ -43,7 +43,7 @@ Some attributes, like corner radius, border width and border color, can be set d
 You can also configure your button directly from code
 
 ```swift
-let awesomeButton = SimpleButton.buttonWithType(.Custom)
+let awesomeButton = SimpleButton(type:.Custom)
 awesomeButton.setBorderWidth(2.0, forState: .Normal)
 awesomeButton.setBorderColor(UIColor.redColor(), forState: .Highlighted)
 ```
@@ -102,9 +102,8 @@ simpleButton.setCornerRadius(20, forState: .Highlighted)
 
 ## Installation
 
-Note that SimpleButton is written in `swift 1.2` and may not be compatible with previous versions of swift.
+Note that SimpleButton is written in `swift 2.0` and may not be compatible with previous versions of swift. 
 
-For usage with `swift 2.0`, take the corresponding branch.
 
 #### Carthage
 
