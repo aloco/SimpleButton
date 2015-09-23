@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        let awesomeButton = SimpleButton.buttonWithType(.Custom) as! SimpleButton
+        let awesomeButton = SimpleButton(type:.Custom)
         awesomeButton.setTitle("Awesome".uppercaseString, forState: .Normal)
         awesomeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         awesomeButton.setNeedsLayout()
         awesomeButton.frame = CGRectMake(0, 0, 130, 130)
         awesomeButton.center = CGPointMake(view.center.x, view.frame.size.height - 90)
-        awesomeButton.setTranslatesAutoresizingMaskIntoConstraints(true)
+        awesomeButton.translatesAutoresizingMaskIntoConstraints = true
         view.addSubview(awesomeButton)
     }
 }
