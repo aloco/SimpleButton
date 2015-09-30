@@ -9,7 +9,7 @@ Simple UIButton subclass with animated, state-aware attributes. Easy to subclass
 
 ## Usage
 
-Just create your own `UIButton` subclass and configure your button attributes by overriding `configureButtonStyles`. 
+Just create your own `SimpleButton` subclass and configure your button attributes by overriding `configureButtonStyles`. 
 
 ```swift
 @IBDesignable
