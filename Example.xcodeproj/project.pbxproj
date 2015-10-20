@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D032EDC1ADD858E00991630 /* SimpleButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; };
+		1FE0BCDE1BD6845400C9E8F6 /* SimpleButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; };
 		4D032EE31ADD85C600991630 /* SimpleButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D032EE21ADD85C600991630 /* SimpleButtonTests.swift */; };
 		A92045E61AD5803900401655 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92045E51AD5803900401655 /* CustomButtons.swift */; };
 		A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */; };
@@ -30,13 +30,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A93CA2761AC2B8A800BD5B22;
 			remoteInfo = SimpleButton;
-		};
-		4D032EE81ADD85E700991630 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A93CA2451AC2B89300BD5B22 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A93CA24C1AC2B89300BD5B22;
-			remoteInfo = Example;
 		};
 		A93CA28C1AC2B8A900BD5B22 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -62,9 +55,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1FBF39581BD678AD00289AAD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D032ED61ADD858E00991630 /* SimpleButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D032EE21ADD85C600991630 /* SimpleButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonTests.swift; sourceTree = "<group>"; };
-		4D032EE61ADD85DB00991630 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Info.plist; path = SimpleButtonTests/Info.plist; sourceTree = "<group>"; };
 		A92045E51AD5803900401655 /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		A93CA24D1AC2B89300BD5B22 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93CA2511AC2B89300BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D032EDC1ADD858E00991630 /* SimpleButton.framework in Frameworks */,
+				1FE0BCDE1BD6845400C9E8F6 /* SimpleButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +123,7 @@
 		4D032ED81ADD858E00991630 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4D032EE61ADD85DB00991630 /* Info.plist */,
+				1FBF39581BD678AD00289AAD /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -221,7 +214,6 @@
 			);
 			dependencies = (
 				4D032EDE1ADD858E00991630 /* PBXTargetDependency */,
-				4D032EE91ADD85E700991630 /* PBXTargetDependency */,
 			);
 			name = SimpleButtonTests;
 			productName = SimpleButtonTests;
@@ -277,7 +269,6 @@
 				TargetAttributes = {
 					4D032ED51ADD858E00991630 = {
 						CreatedOnToolsVersion = 6.3;
-						TestTargetID = A93CA24C1AC2B89300BD5B22;
 					};
 					A93CA24C1AC2B89300BD5B22 = {
 						CreatedOnToolsVersion = 6.3;
@@ -371,11 +362,6 @@
 			target = A93CA2761AC2B8A800BD5B22 /* SimpleButton */;
 			targetProxy = 4D032EDD1ADD858E00991630 /* PBXContainerItemProxy */;
 		};
-		4D032EE91ADD85E700991630 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A93CA24C1AC2B89300BD5B22 /* Example */;
-			targetProxy = 4D032EE81ADD85E700991630 /* PBXContainerItemProxy */;
-		};
 		A93CA28D1AC2B8A900BD5B22 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A93CA2761AC2B8A800BD5B22 /* SimpleButton */;
@@ -407,10 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -421,7 +404,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aloco.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Debug;
 		};
@@ -429,16 +411,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SimpleButtonTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aloco.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
 		};
