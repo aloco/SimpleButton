@@ -170,7 +170,7 @@ public class SimpleButton: UIButton {
     
     private func changeBorderColorForStateChange(animated: Bool = false) {
         if let color = borderColors[state.rawValue] ?? borderColors[UIControlState.Normal.rawValue] {
-            if layer.backgroundColor == nil || UIColor(CGColor: layer.borderColor!) != UIColor(CGColor: color) {
+            if layer.borderColor == nil || UIColor(CGColor: layer.borderColor!) != UIColor(CGColor: color) {
                 if animated {
                     animateLayer(layer, from: layer.borderColor, to: color, forKey: "borderColor")
                 }
