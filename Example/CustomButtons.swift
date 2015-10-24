@@ -25,6 +25,14 @@ class ScaleButton: SimpleButton {
 class BackgroundColorButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
+        
+        setScale(0.98, forState: .Highlighted, animated: true)
+        setShadowRadius(5, forState: .Normal, animated: true)
+        setShadowRadius(10, forState: .Highlighted, animated: true)
+        setShadowOpacity(0.6, forState: .Normal)
+        setShadowOpacity(0.6, forState: .Highlighted)
+        setShadowOffset(CGSize(width: 0, height: 1), forState: .Normal)
+        setShadowOffset(CGSize(width: 0, height: 2), forState: .Highlighted)
         setBackgroundColor(UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1.0), forState: .Normal)
         setBackgroundColor(UIColor(red: 211/255, green: 84/255, blue: 0/255, alpha: 1.0), forState: .Highlighted)
         setTitle(".Normal", forState: .Normal)
