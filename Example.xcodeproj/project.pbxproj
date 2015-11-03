@@ -18,6 +18,7 @@
 		A93CA28F1AC2B8A900BD5B22 /* SimpleButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A93CA2981AC2B91400BD5B22 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */; };
 		A93DE0DE1BE8E20F00409A4B /* SimpleButtonControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DE0DD1BE8E20F00409A4B /* SimpleButtonControlState.swift */; };
+		A93DE0E01BE90C8200409A4B /* SimpleButtonStateChangeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DE0DF1BE90C8200409A4B /* SimpleButtonStateChangeValue.swift */; };
 		A9C6EC7B1AD1A35900C4CB79 /* UpperCaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */; };
 		A9C97EEE1AC45CCF005C14E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */; };
 		A9C97EF01AC45D9F005C14E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2541AC2B89300BD5B22 /* ViewController.swift */; };
@@ -71,6 +72,7 @@
 		A93CA27B1AC2B8A800BD5B22 /* SimpleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleButton.h; sourceTree = "<group>"; };
 		A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
 		A93DE0DD1BE8E20F00409A4B /* SimpleButtonControlState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonControlState.swift; sourceTree = "<group>"; };
+		A93DE0DF1BE90C8200409A4B /* SimpleButtonStateChangeValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonStateChangeValue.swift; sourceTree = "<group>"; };
 		A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpperCaseButton.swift; sourceTree = "<group>"; };
 		A9C97EED1AC45CCF005C14E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9C97EF11AC45EC0005C14E0 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				A93DE0DD1BE8E20F00409A4B /* SimpleButtonControlState.swift */,
 				A93CA27B1AC2B8A800BD5B22 /* SimpleButton.h */,
 				A93CA2791AC2B8A800BD5B22 /* Supporting Files */,
+				A93DE0DF1BE90C8200409A4B /* SimpleButtonStateChangeValue.swift */,
 			);
 			path = SimpleButton;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93CA2981AC2B91400BD5B22 /* SimpleButton.swift in Sources */,
+				A93DE0E01BE90C8200409A4B /* SimpleButtonStateChangeValue.swift in Sources */,
 				A93DE0DE1BE8E20F00409A4B /* SimpleButtonControlState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
