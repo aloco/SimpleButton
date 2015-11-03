@@ -28,19 +28,19 @@ class SimpleButtonTests: XCTestCase {
     
     func testSetBackgroundColor() {
         // This is an example of a functional test case.
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         button.setBackgroundColor(UIColor.redColor())
         XCTAssertEqual(button.backgroundColor, UIColor.redColor(), "backgroundColor doesn't match")
     }
     
     func testSetBackgroundColorStateChange() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         button.setBackgroundColor(UIColor.greenColor(), forState: .Normal, animated: true)
         button.enabled = true
         
-        XCTAssertEqual(button.backgroundColor, UIColor.greenColor(), "disabled backgroundColor doesn't match set color")
+        XCTAssertEqual(button.backgroundColor, UIColor.greenColor(), "enabled backgroundColor doesn't match set color")
         
         button.setBackgroundColor(UIColor.redColor(), forState: .Disabled, animated: true)
         button.enabled = false
@@ -52,7 +52,7 @@ class SimpleButtonTests: XCTestCase {
     // MARK: BorderColor
     
     func testBorderColor() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         button.setBorderColor(UIColor.redColor())
         
@@ -77,7 +77,7 @@ class SimpleButtonTests: XCTestCase {
     // MARK: BorderWidth
     
     func testBorderWidthWithStateChange() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         button.setBorderWidth(1.0)
         button.setBorderWidth(0.5, forState: .Highlighted, animated: true)
@@ -95,7 +95,7 @@ class SimpleButtonTests: XCTestCase {
     // MARK: CornerRadius
     
     func testSetCornerRadius() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         button.setCornerRadius(2.0)
         
@@ -103,7 +103,7 @@ class SimpleButtonTests: XCTestCase {
     }
     
     func testSetCornerRadiusWithStateChange() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
 
         button.setCornerRadius(4.0, forState: .Normal, animated: true)
         button.enabled = true
@@ -120,7 +120,7 @@ class SimpleButtonTests: XCTestCase {
     // MARK: Scale
     
     func testSetScale() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         let originalScale = CGRectGetHeight(button.frame)
         button.setScale(0.5)
@@ -130,7 +130,7 @@ class SimpleButtonTests: XCTestCase {
     }
     
     func testScaleWithStateChange() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         button.setScale(0.5, forState: .Selected, animated: true)
         let unselectedSize = CGRectGetHeight(button.frame)
@@ -141,16 +141,180 @@ class SimpleButtonTests: XCTestCase {
         XCTAssertEqual(unselectedSize * 0.5, selectedSize, "selected scale doesn't match unselected scale * 0.5")
     }
     
+    // MARK: ShadowColor
+    
+    func testSetShadowColor() {
+        let button = SimpleButton(type: .Custom)
+        
+        button.setShadowColor(UIColor.redColor(), forState: .Normal, animated: true)
+        XCTAssertEqual(UIColor(CGColor: button.layer.shadowColor ?? UIColor.blueColor().CGColor), UIColor.redColor(), "shadowColor doesn't match")
+    }
+    
+    func testSetShadowColorStateChange() {
+        let button = SimpleButton(type: .Custom)
+        
+        button.setShadowColor(UIColor.greenColor(), forState: .Normal, animated: true)
+        button.enabled = true
+        
+        XCTAssertEqual(UIColor(CGColor: button.layer.shadowColor ?? UIColor.blueColor().CGColor), UIColor.greenColor(), "enabled backgroundColor doesn't match set color")
+        
+        button.setShadowColor(UIColor.redColor(), forState: .Disabled, animated: true)
+        button.enabled = false
+        
+        XCTAssertEqual(UIColor(CGColor: button.layer.shadowColor ?? UIColor.blueColor().CGColor), UIColor.redColor(), "disabled backgroundColor doesn't match set color")
+    }
+    
+    // MARK: ShadowOffset
+    
+    func testSetShadowOffset() {
+        let button = SimpleButton(type: .Custom)
+        let offset = CGSize(width: 10, height: 10)
+        button.setShadowOffset(offset, forState: .Normal, animated: true)
+        XCTAssertEqual(offset, button.layer.shadowOffset, "shadowOffset doesn't match")
+    }
+    
+    func testSetShadowOffsetStateChange() {
+        
+        let button = SimpleButton(type: .Custom)
+        let offset = CGSize(width: 10, height: 10)
+        button.setShadowOffset(offset, forState: .Normal, animated: true)
+        XCTAssertEqual(offset, button.layer.shadowOffset, "shadowOffset doesn't match")
+        
+        let newOffset = CGSize(width: 2, height: 3)
+        button.setShadowOffset(newOffset, forState: .Disabled, animated: true)
+        button.enabled = false
+        
+        XCTAssertEqual(newOffset, button.layer.shadowOffset, "disabled shadowOffset doesn't match")
+    }
+    
+    // MARK: ShadowRadius
+    
+    func testSetShadowRadius() {
+        let button = SimpleButton(type: .Custom)
+        let offset = CGSize(width: 10, height: 10)
+        button.setShadowOffset(offset, forState: .Normal, animated: true)
+        XCTAssertEqual(offset, button.layer.shadowOffset, "shadowOffset doesn't match")
+    }
+    
+    func testSetShadowRadiusStateChange() {
+        
+        let button = SimpleButton(type: .Custom)
+
+        button.setShadowRadius(10, forState: .Normal, animated: true)
+        XCTAssertEqual(10, button.layer.shadowRadius, "shadowRadius doesn't match")
+        
+        button.setShadowRadius(2, forState: .Disabled, animated: true)
+        button.enabled = false
+        
+        XCTAssertEqual(2, button.layer.shadowRadius, "disabled shadowRadius doesn't match")
+    }
+    
+    // MARK: ShadowOpacity
+    
+    func testSetShadowOpacity() {
+        let button = SimpleButton(type: .Custom)
+        let offset = CGSize(width: 10, height: 10)
+        button.setShadowOffset(offset, forState: .Normal, animated: true)
+        XCTAssertEqual(offset, button.layer.shadowOffset, "shadowOffset doesn't match")
+    }
+    
+    func testSetShadowOpacityStateChange() {
+        
+        let button = SimpleButton(type: .Custom)
+        
+        button.setShadowOpacity(1, forState: .Normal, animated: true)
+        XCTAssertEqual(1, button.layer.shadowOpacity, "shadowOpacity doesn't match")
+        
+        button.setShadowOpacity(0.5, forState: .Disabled, animated: true)
+        button.enabled = false
+        
+        XCTAssertEqual(0.5, button.layer.shadowOpacity, "disabled shadowOpacity doesn't match")
+    }
     
     // MARK: EdgeCases
     
     func testChangeStateBackgroundColorWithoutStateChange() {
-        let button = SimpleButton()
+        let button = SimpleButton(type: .Custom)
         
         button.setBackgroundColor(UIColor.greenColor(), forState: .Normal, animated: true)
         XCTAssertEqual(button.backgroundColor, UIColor.greenColor(), "backgorundColor doesn't match")
         
         button.setBackgroundColor(UIColor.redColor(), forState: .Normal, animated: true)
         XCTAssertEqual(button.backgroundColor, UIColor.redColor(), "backgorundColor doesn't match")
+    }
+    
+    // MARK: StateChange tests
+    
+    func testStateChange() {
+        let button = SimpleButton(type: .Custom)
+        
+        XCTAssertEqual(button.state, UIControlState.Normal, "state should be set to Normal")
+        
+        button.highlighted = true
+        XCTAssertEqual(button.state, UIControlState.Highlighted, "state should be set to Highlighted")
+        
+        button.enabled = false
+        print(button.state)
+        XCTAssert(button.state.contains(.Highlighted), "state should contain highlighted")
+        
+        button.loading = true
+        print(button.state)
+        XCTAssert(button.state.contains(SimpleButtonControlState.Loading), "state should contain Loading")
+    }
+    
+    // MARK: Check correct enable / disable of userInteractionEnabled
+    
+    func testUserInteractionEnabled() {
+        let button = SimpleButton(type: .Custom)
+        
+        button.enabled = false
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
+
+        button.enabled = true
+        XCTAssert(button.userInteractionEnabled == true, "userInteractionEnabled should be set to true")
+        
+        button.loading = true
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
+
+        button.loading = false
+        XCTAssert(button.userInteractionEnabled == true, "userInteractionEnabled should be set to true")
+        
+        
+        button.loading = true
+        button.enabled = true
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
+
+        button.enabled = false
+        button.loading = false
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
+        
+        button.loading = false
+        button.enabled = true
+        XCTAssert(button.userInteractionEnabled == true, "userInteractionEnabled should be set to true")
+        
+        button.loading = true
+        button.enabled = false
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
+        
+        
+        button.loading = true
+        button.enabled = false
+        button.loading = false
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
+        
+        button.loading = false
+        button.enabled = true
+        button.loading = true
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
+        
+        button.enabled = false
+        button.loading = false
+        button.enabled = true
+        XCTAssert(button.userInteractionEnabled == true, "userInteractionEnabled should be set to true")
+        
+        button.enabled = true
+        button.loading = true
+        button.enabled = false
+        XCTAssert(button.userInteractionEnabled == false, "userInteractionEnabled should be set to false")
     }
 }

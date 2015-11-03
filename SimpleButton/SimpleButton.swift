@@ -16,19 +16,38 @@ public class SimpleButton: UIButton {
     public var animationDuration: NSTimeInterval = 0.1
     public var animateStateChange: Bool = true
     
-    lazy private var backgroundColors = [ControlState: CGColor]()
-    lazy private var borderColors = [ControlState: CGColor]()
-    lazy private var buttonScales = [ControlState: CGFloat]()
-    lazy private var borderWidths = [ControlState: CGFloat]()
-    lazy private var cornerRadii = [ControlState: CGFloat]()
+    private var lockUpdate = false
     
-    lazy private var shadowColors = [ControlState: CGColor]()
-    lazy private var shadowOpacity = [ControlState: Float]()
-    lazy private var shadowOffset = [ControlState: CGSize]()
-    lazy private var shadowRadii = [ControlState: CGFloat]()
+    private var backgroundColors = [ControlState: CGColor]()
+    private var borderColors = [ControlState: CGColor]()
+    private var buttonScales = [ControlState: CGFloat]()
+    private var borderWidths = [ControlState: CGFloat]()
+    private var cornerRadii = [ControlState: CGFloat]()
+    
+    private var shadowColors = [ControlState: CGColor]()
+    private var shadowOpacities = [ControlState: Float]()
+    private var shadowOffsets = [ControlState: CGSize]()
+    private var shadowRadii = [ControlState: CGFloat]()
 
+    public var loadingView: UIView?
+    
+    public override var state: UIControlState {
+        if loading {
+            var options = SimpleButtonControlState.Loading
+            options.insert(super.state)
+            return options
+        }
+        return super.state
+    }
+    
     override public var enabled: Bool {
         didSet {
+            if !enabled {
+                self.userInteractionEnabled = false
+            }
+            else if !state.contains(SimpleButtonControlState.Loading) && enabled {
+                self.userInteractionEnabled = true
+            }
             updateForStateChange(animateStateChange)
         }
     }
@@ -41,6 +60,32 @@ public class SimpleButton: UIButton {
     
     override public var selected: Bool {
         didSet {
+            updateForStateChange(animateStateChange)
+        }
+    }
+    
+    public var loading: Bool = false {
+        didSet {
+            if loading {
+                self.userInteractionEnabled = false
+                if loadingView == nil {
+                    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+                    activityIndicator.startAnimating()
+                    loadingView = activityIndicator
+                    addSubview(loadingView!)
+                }
+                loadingView?.hidden = false
+                titleLabel?.layer.opacity = 0
+                imageView?.hidden = true
+            }
+            else {
+                if !self.state.contains(.Disabled) {
+                    userInteractionEnabled = true
+                }
+                loadingView?.hidden = true
+                titleLabel?.layer.opacity = 1
+                imageView?.hidden = false
+            }
             updateForStateChange(animateStateChange)
         }
     }
@@ -63,6 +108,34 @@ public class SimpleButton: UIButton {
         didSet {
             if borderColor != nil {
                 setBorderColor(borderColor!)
+            }
+        }
+    }
+    
+    @IBInspectable var buttonBackgroundColor: UIColor? {
+        didSet {
+            if buttonBackgroundColor != nil {
+                setBackgroundColor(buttonBackgroundColor!)
+            }
+        }
+    }
+    
+    @IBInspectable var shadowOpacity: Float = 0 {
+        didSet {
+            setShadowOpacity(shadowOpacity)
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat = 0 {
+        didSet {
+            setShadowRadius(shadowRadius)
+        }
+    }
+    
+    @IBInspectable var shadowColor: UIColor? {
+        didSet {
+            if shadowColor != nil {
+                setShadowColor(shadowColor!)
             }
         }
     }
@@ -100,8 +173,8 @@ public class SimpleButton: UIButton {
         borderWidths[UIControlState.Normal.rawValue] = layer.borderWidth
         cornerRadii[UIControlState.Normal.rawValue] = layer.cornerRadius
         shadowColors[UIControlState.Normal.rawValue] = layer.shadowColor
-        shadowOpacity[UIControlState.Normal.rawValue] = layer.shadowOpacity
-        shadowOffset[UIControlState.Normal.rawValue] = layer.shadowOffset
+        shadowOpacities[UIControlState.Normal.rawValue] = layer.shadowOpacity
+        shadowOffsets[UIControlState.Normal.rawValue] = layer.shadowOffset
         shadowRadii[UIControlState.Normal.rawValue] = layer.shadowRadius
     }
     
@@ -136,7 +209,7 @@ public class SimpleButton: UIButton {
     }
 
     public func setShadowOpacity(opacity: Float, forState state: UIControlState = .Normal, animated: Bool = false) {
-        shadowOpacity[state.rawValue] = opacity
+        shadowOpacities[state.rawValue] = opacity
         changeShadowOpacityForStateChange(animated)
     }
 
@@ -146,7 +219,7 @@ public class SimpleButton: UIButton {
     }
     
     public func setShadowOffset(offset: CGSize, forState state: UIControlState = .Normal, animated: Bool = false) {
-        shadowOffset[state.rawValue] = offset
+        shadowOffsets[state.rawValue] = offset
         changeShadowOffsetForStateChange(animated)
     }
     
@@ -217,7 +290,7 @@ public class SimpleButton: UIButton {
     }
     
     private func changeShadowOffsetForStateChange(animated: Bool = false) {
-        if let offset = shadowOffset[state.rawValue] ?? shadowOffset[UIControlState.Normal.rawValue] where offset != layer.shadowOffset {
+        if let offset = shadowOffsets[state.rawValue] ?? shadowOffsets[UIControlState.Normal.rawValue] where offset != layer.shadowOffset {
             if animated {
                 animateLayer(layer, from: NSValue(CGSize: layer.shadowOffset), to: NSValue(CGSize: offset), forKey: "shadowOffset")
             }
@@ -239,17 +312,15 @@ public class SimpleButton: UIButton {
             if animated {
                 animateLayer(layer, from: layer.shadowRadius, to: radius, forKey: "shadowRadius")
             }
-            
             layer.shadowRadius = radius
         }
     }
     
     private func changeShadowOpacityForStateChange(animated: Bool = false) {
-        if let opacity = shadowOpacity[state.rawValue] ?? shadowOpacity[UIControlState.Normal.rawValue] where opacity != layer.shadowOpacity {
+        if let opacity = shadowOpacities[state.rawValue] ?? shadowOpacities[UIControlState.Normal.rawValue] where opacity != layer.shadowOpacity {
             if animated {
                 animateLayer(layer, from: layer.shadowOpacity, to: opacity, forKey: "shadowOpacity")
             }
-            
             layer.shadowOpacity = opacity
         }
     }
@@ -260,5 +331,11 @@ public class SimpleButton: UIButton {
         animation.toValue = to
         animation.duration = animationDuration
         layer.addAnimation(animation, forKey: key)
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        loadingView?.center = CGPoint(x: bounds.size.width  / 2,
+            y: bounds.size.height / 2)
     }
 }
