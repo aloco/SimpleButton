@@ -9,24 +9,21 @@
 import Foundation
 import SimpleButton
 
-@IBDesignable
 class ScaleButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
+        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal, animated: true)
         setTitle(".Normal", forState: .Normal)
         setTitle(".Highlighted", forState: .Highlighted)
-        setScale(0.97, forState: .Highlighted)
-        
+        setScale(0.97, forState: .Highlighted, animated: true)
     }
 }
 
-@IBDesignable
 class BackgroundColorButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
-        setBackgroundColor(UIColor(red: 22/255, green: 160/255, blue: 133/255, alpha: 1.0), forState: .Highlighted)
+        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal, animated: true)
+        setBackgroundColor(UIColor(red: 22/255, green: 160/255, blue: 133/255, alpha: 1.0), forState: .Highlighted, animated: true)
 
         setBackgroundColor(UIColor.darkGrayColor(), forState: SimpleButtonControlState.Loading)
         
@@ -35,24 +32,22 @@ class BackgroundColorButton: SimpleButton {
     }
 }
 
-@IBDesignable
 class BorderWidthButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
         
-        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
-        setBorderColor(UIColor(red: 22/255, green: 160/255, blue: 133/255, alpha: 1.0), forState: .Normal)
+        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal, animated: true)
+        setBorderColor(UIColor(red: 22/255, green: 160/255, blue: 133/255, alpha: 1.0), forState: .Normal, animated: true)
 
         setTitle(".Normal", forState: .Normal)
         setTitle(".Highlighted", forState: .Highlighted)
         
-        setBorderWidth(8.0, forState: .Normal)
-        setBorderWidth(4.0, forState: .Highlighted)
+        setBorderWidth(8.0, forState: .Normal, animated: true)
+        setBorderWidth(4.0, forState: .Highlighted, animated: true)
         
     }
 }
 
-@IBDesignable
 class BorderColorButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
@@ -60,9 +55,9 @@ class BorderColorButton: SimpleButton {
         setTitleColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
         setTitleColor(UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0), forState: .Highlighted)
 
-        setBorderWidth(4.0, forState: .Normal)
-        setBorderColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
-        setBorderColor(UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0), forState: .Highlighted)
+        setBorderWidth(4.0, forState: .Normal, animated: true)
+        setBorderColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal, animated: true)
+        setBorderColor(UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0), forState: .Highlighted, animated: true)
 
         setTitle(".Normal", forState: .Normal)
         setTitle(".Highlighted", forState: .Highlighted)
@@ -70,20 +65,18 @@ class BorderColorButton: SimpleButton {
     }
 }
 
-@IBDesignable
 class CornerRadiusButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
+        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal, animated: true)
         setTitle(".Normal", forState: .Normal)
         setTitle(".Highlighted", forState: .Highlighted)
-        setCornerRadius(10.0, forState: .Normal)
-        setCornerRadius(45.0, forState: .Highlighted)
+        setCornerRadius(10.0, forState: .Normal, animated: true)
+        setCornerRadius(45.0, forState: .Highlighted, animated: true)
 
     }
 }
 
-@IBDesignable
 class ShadowButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
@@ -92,11 +85,11 @@ class ShadowButton: SimpleButton {
         setShadowRadius(10, forState: .Normal, animated: true)
         setScale(0.99, forState: .Highlighted, animated: true)
         
-        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal)
+        setBackgroundColor(UIColor(red: 26/255, green: 188/255, blue: 156/255, alpha: 1.0), forState: .Normal, animated: true)
         
-        setShadowOpacity(0.6, forState: .Normal)
-        setShadowOffset(CGSize(width: 0, height: 1), forState: .Normal)
-        setShadowOffset(CGSize(width: 0, height: 2), forState: .Highlighted)
+        setShadowOpacity(0.6, forState: .Normal, animated: true)
+        setShadowOffset(CGSize(width: 0, height: 1), forState: .Normal, animated: true)
+        setShadowOffset(CGSize(width: 0, height: 2), forState: .Highlighted, animated: true)
         
     }
 }

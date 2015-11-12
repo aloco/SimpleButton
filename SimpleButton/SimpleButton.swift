@@ -17,7 +17,7 @@ public class SimpleButton: UIButton {
     public var loadingView: UIView?
     
     /// Duration of animated state change.
-    public var animationDuration: NSTimeInterval = 0.1
+    public var defaultAnimationDuration: NSTimeInterval = 0.5
     
     /// Represents current button state.
     public override var state: UIControlState {
@@ -30,50 +30,58 @@ public class SimpleButton: UIButton {
         return super.state
     }
     
-    // MARK: State values
+    /// used to lock any animated state transition for initial setup
+    private var lockAnimatedUpdate: Bool = true
+    
+    /// used to determine the `from` value of any animation
+    private var sourceLayer: CALayer {
+        return (layer.presentationLayer() ?? layer) as! CALayer
+    }
+    
+    // MARK: State values with initial values
     private lazy var backgroundColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.backgroundColor?.CGColor {
-            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true)]
+            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: false, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
     
     private lazy var borderColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.layer.borderColor {
-            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true)]
+            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: false, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
 
     private lazy var buttonScales: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: 1.0, animated: true)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: 1.0, animated: false, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var borderWidths: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.borderWidth, animated: true)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.borderWidth, animated: false, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var cornerRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.cornerRadius, animated: true)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.cornerRadius, animated: false, animationDuration: self.defaultAnimationDuration)]
     }()
     
     private lazy var shadowColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.layer.shadowColor {
-            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true)]
+            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: false, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
 
     private lazy var shadowOpacities: [ControlState: SimpleButtonStateChangeValue<Float>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOpacity, animated: true)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOpacity, animated: false, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var shadowOffsets: [ControlState: SimpleButtonStateChangeValue<CGSize>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOffset, animated: true)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOffset, animated: false, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var shadowRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowRadius, animated: true)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowRadius, animated: false, animationDuration: self.defaultAnimationDuration)]
     }()
 
     
@@ -116,9 +124,11 @@ public class SimpleButton: UIButton {
                 if loadingView == nil {
                     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
                     activityIndicator.startAnimating()
+                    activityIndicator.hidesWhenStopped = false
                     loadingView = activityIndicator
                     addSubview(loadingView!)
                 }
+                print("loading view set to hidden false")
                 loadingView?.hidden = false
                 titleLabel?.layer.opacity = 0
                 imageView?.hidden = true
@@ -127,6 +137,7 @@ public class SimpleButton: UIButton {
                 if !self.state.contains(.Disabled) {
                     userInteractionEnabled = true
                 }
+                print("loading view set to hidden")
                 loadingView?.hidden = true
                 titleLabel?.layer.opacity = 1
                 imageView?.hidden = false
@@ -140,21 +151,28 @@ public class SimpleButton: UIButton {
     
     required override public init(frame: CGRect) {
         super.init(frame: frame)
+        print("init frame")
+        lockAnimatedUpdate = true
         configureButtonStyles()
+        update()
+        lockAnimatedUpdate = false
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        print("init coder")
+        lockAnimatedUpdate = true
         configureButtonStyles()
+        update()
+        lockAnimatedUpdate = false
     }
-    
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        configureButtonStyles()
-    }
-    
+
     public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        lockAnimatedUpdate = true
         configureButtonStyles()
+        update()
+        lockAnimatedUpdate = false
     }
     
     // MARK: Configuration
@@ -175,8 +193,8 @@ public class SimpleButton: UIButton {
     - parameter state:    determines at which state that scale applies
     - parameter animated: determines if that change in scale should animate
     */
-    public func setScale(scale: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
-        buttonScales[state.rawValue] = SimpleButtonStateChangeValue(value: scale, animated: animated)
+    public func setScale(scale: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        buttonScales[state.rawValue] = SimpleButtonStateChangeValue(value: scale, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateScale()
     }
     
@@ -187,8 +205,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that background color applies
      - parameter animated: determines if that change in background color should animate
      */
-    public func setBackgroundColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = false) {
-        backgroundColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated)
+    public func setBackgroundColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        backgroundColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateBackgroundColor()
     }
     
@@ -199,8 +217,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that border width applies
      - parameter animated: determines if that change in border width should animate
      */
-    public func setBorderWidth(width: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
-        borderWidths[state.rawValue] = SimpleButtonStateChangeValue(value: width, animated: animated)
+    public func setBorderWidth(width: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        borderWidths[state.rawValue] = SimpleButtonStateChangeValue(value: width, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateBorderWidth()
     }
     
@@ -211,8 +229,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that border color applies
      - parameter animated: determines if that change in border color should animate
      */
-    public func setBorderColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = false) {
-        borderColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated)
+    public func setBorderColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        borderColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateBorderColor()
     }
     
@@ -223,8 +241,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that corner radius applies
      - parameter animated: determines if that change in radius of the corners should animate
      */
-    public func setCornerRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
-        cornerRadii[state.rawValue] = SimpleButtonStateChangeValue(value: radius, animated: animated)
+    public func setCornerRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        cornerRadii[state.rawValue] = SimpleButtonStateChangeValue(value: radius, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateCornerRadius()
     }
     
@@ -235,8 +253,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that shadow color applies
      - parameter animated: determines if that change in shadow color should animate
      */
-    public func setShadowColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = false) {
-        shadowColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated)
+    public func setShadowColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        shadowColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateShadowColor()
     }
 
@@ -247,8 +265,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that shadow opacity applies
      - parameter animated: determines if that change in shadow opacity should animate
      */
-    public func setShadowOpacity(opacity: Float, forState state: UIControlState = .Normal, animated: Bool = false) {
-        shadowOpacities[state.rawValue] = SimpleButtonStateChangeValue(value: opacity, animated: animated)
+    public func setShadowOpacity(opacity: Float, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        shadowOpacities[state.rawValue] = SimpleButtonStateChangeValue(value: opacity, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateShadowOpacity()
     }
 
@@ -259,8 +277,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that shadow radius applies
      - parameter animated: determines if that change in shadow radius should animate
      */
-    public func setShadowRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = false) {
-        shadowRadii[state.rawValue] = SimpleButtonStateChangeValue(value: radius, animated: animated)
+    public func setShadowRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        shadowRadii[state.rawValue] = SimpleButtonStateChangeValue(value: radius, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateShadowRadius()
     }
     
@@ -271,8 +289,8 @@ public class SimpleButton: UIButton {
      - parameter state:    determines at which state that shadow offset applies
      - parameter animated: determines if that change in shadow offset should animate
      */
-    public func setShadowOffset(offset: CGSize, forState state: UIControlState = .Normal, animated: Bool = false) {
-        shadowOffsets[state.rawValue] = SimpleButtonStateChangeValue(value: offset, animated: animated)
+    public func setShadowOffset(offset: CGSize, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
+        shadowOffsets[state.rawValue] = SimpleButtonStateChangeValue(value: offset, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateShadowOffset()
     }
     
@@ -289,7 +307,9 @@ public class SimpleButton: UIButton {
     // MARK: Attribute update helper
     
     /**
-    Updates all attributes if necessary. Each update function determines by themself if an update of any attribute is necessary. They also determine if that update should animate.
+    Updates all attributes if necessary. Each update function determines by itself if an update of any attribute is necessary. It also determines if that update should animate.
+    
+    - parameter lockAnimatedUpdate: set this to true to update without animation, even it´s defined in `SimpleButtonStateChange`. Used to set initial button attributes
     */
     private func update() {
         updateBackgroundColor()
@@ -305,8 +325,8 @@ public class SimpleButton: UIButton {
     
     private func updateCornerRadius() {
         if let stateChange = cornerRadii[state.rawValue] ?? cornerRadii[UIControlState.Normal.rawValue] where stateChange.value != layer.cornerRadius {
-            if stateChange.animated {
-                animateLayer(layer, from: layer.cornerRadius, to: stateChange.value, forKey: "cornerRadius")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: sourceLayer.cornerRadius, to: stateChange.value, forKey: "cornerRadius", duration: stateChange.animationDuration)
             }
             layer.cornerRadius = stateChange.value
         }
@@ -317,14 +337,14 @@ public class SimpleButton: UIButton {
             let animations = {
                 self.transform = CGAffineTransformMakeScale(stateChange.value, stateChange.value)
             }
-            (stateChange.animated) ? UIView.animateWithDuration(animationDuration, animations: animations) : animations()
+            (stateChange.animated) && !lockAnimatedUpdate ? UIView.animateWithDuration(stateChange.animationDuration, animations: animations) : animations()
         }
     }
     
     private func updateBackgroundColor() {
         if let stateChange = backgroundColors[state.rawValue] ?? backgroundColors[UIControlState.Normal.rawValue] where layer.backgroundColor == nil || UIColor(CGColor: layer.backgroundColor!) != UIColor(CGColor: stateChange.value) {
-            if stateChange.animated {
-                animateLayer(layer, from: layer.backgroundColor, to: stateChange.value, forKey: "backgroundColor")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: sourceLayer.backgroundColor, to: stateChange.value, forKey: "backgroundColor", duration: stateChange.animationDuration)
             }
             layer.backgroundColor = stateChange.value
         }
@@ -332,8 +352,8 @@ public class SimpleButton: UIButton {
     
     private func updateBorderColor() {
         if let stateChange = borderColors[state.rawValue] ?? borderColors[UIControlState.Normal.rawValue] where layer.borderColor == nil || UIColor(CGColor: layer.borderColor!) != UIColor(CGColor: stateChange.value)  {
-            if stateChange.animated {
-                animateLayer(layer, from: layer.borderColor, to: stateChange.value, forKey: "borderColor")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: sourceLayer.borderColor, to: stateChange.value, forKey: "borderColor", duration: stateChange.animationDuration)
             }
             layer.borderColor = stateChange.value
         }
@@ -341,8 +361,8 @@ public class SimpleButton: UIButton {
     
     private func updateBorderWidth() {
         if let stateChange = borderWidths[state.rawValue] ?? borderWidths[UIControlState.Normal.rawValue] where stateChange.value != layer.borderWidth {
-            if stateChange.animated {
-                animateLayer(layer, from: layer.borderWidth, to: stateChange.value, forKey: "borderWidth")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: sourceLayer.borderWidth, to: stateChange.value, forKey: "borderWidth", duration: stateChange.animationDuration)
             }
             layer.borderWidth = stateChange.value
         }
@@ -350,8 +370,8 @@ public class SimpleButton: UIButton {
     
     private func updateShadowOffset() {
         if let stateChange = shadowOffsets[state.rawValue] ?? shadowOffsets[UIControlState.Normal.rawValue] where stateChange.value != layer.shadowOffset {
-            if stateChange.animated {
-                animateLayer(layer, from: NSValue(CGSize: layer.shadowOffset), to: NSValue(CGSize: stateChange.value), forKey: "shadowOffset")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: NSValue(CGSize: sourceLayer.shadowOffset), to: NSValue(CGSize: stateChange.value), forKey: "shadowOffset", duration: stateChange.animationDuration)
             }
             layer.shadowOffset = stateChange.value
         }
@@ -359,8 +379,8 @@ public class SimpleButton: UIButton {
     
     private func updateShadowColor() {
         if let stateChange = shadowColors[state.rawValue] ?? shadowColors[UIControlState.Normal.rawValue] where layer.shadowColor == nil || UIColor(CGColor: layer.shadowColor!) != UIColor(CGColor: stateChange.value)  {
-            if stateChange.animated {
-                animateLayer(layer, from: layer.shadowColor, to: stateChange.value, forKey: "shadowColor")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: sourceLayer.shadowColor, to: stateChange.value, forKey: "shadowColor", duration: stateChange.animationDuration)
             }
             layer.shadowColor = stateChange.value
         }
@@ -368,8 +388,8 @@ public class SimpleButton: UIButton {
     
     private func updateShadowRadius() {
         if let stateChange = shadowRadii[state.rawValue] ?? shadowRadii[UIControlState.Normal.rawValue] where stateChange.value != layer.shadowRadius {
-            if stateChange.animated {
-                animateLayer(layer, from: layer.shadowRadius, to: stateChange.value, forKey: "shadowRadius")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: sourceLayer.shadowRadius, to: stateChange.value, forKey: "shadowRadius", duration: stateChange.animationDuration)
             }
             layer.shadowRadius = stateChange.value
         }
@@ -377,19 +397,21 @@ public class SimpleButton: UIButton {
     
     private func updateShadowOpacity() {
         if let stateChange = shadowOpacities[state.rawValue] ?? shadowOpacities[UIControlState.Normal.rawValue] where stateChange.value != layer.shadowOpacity {
-            if stateChange.animated {
-                animateLayer(layer, from: layer.shadowOpacity, to: stateChange.value, forKey: "shadowOpacity")
+            if stateChange.animated && !lockAnimatedUpdate {
+                animateLayer(layer, from: sourceLayer.shadowOpacity, to: stateChange.value, forKey: "shadowOpacity", duration: stateChange.animationDuration)
             }
             layer.shadowOpacity = stateChange.value
         }
     }
     
+
+    
     // MARK: Animation helper
-    private func animateLayer(layer: CALayer, from: AnyObject?, to: AnyObject, forKey key: String) {
+    private func animateLayer(layer: CALayer, from: AnyObject?, to: AnyObject, forKey key: String, duration: NSTimeInterval) {
         let animation = CABasicAnimation()
         animation.fromValue = from
         animation.toValue = to
-        animation.duration = animationDuration
+        animation.duration = duration
         layer.addAnimation(animation, forKey: key)
     }
     

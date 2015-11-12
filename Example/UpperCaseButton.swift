@@ -8,7 +8,6 @@
 
 import SimpleButton
 
-@IBDesignable
 class UpperCaseButton: SimpleButton {
 
     override func setTitle(title: String?, forState state: UIControlState) {

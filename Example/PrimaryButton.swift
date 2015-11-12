@@ -8,7 +8,6 @@
 
 import SimpleButton
 
-@IBDesignable
 class PrimaryButton: SimpleButton {
     
     override func configureButtonStyles() {
