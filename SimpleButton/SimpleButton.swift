@@ -16,8 +16,8 @@ public class SimpleButton: UIButton {
     /// Loading view. UIActivityIndicatorView as default
     public var loadingView: UIView?
     
-    /// Duration of animated state change.
-    public var defaultAnimationDuration: NSTimeInterval = 0.5
+    /// Default duration of animated state change.
+    public var defaultAnimationDuration: NSTimeInterval = 0.1
     
     /// Represents current button state.
     public override var state: UIControlState {
@@ -128,7 +128,6 @@ public class SimpleButton: UIButton {
                     loadingView = activityIndicator
                     addSubview(loadingView!)
                 }
-                print("loading view set to hidden false")
                 loadingView?.hidden = false
                 titleLabel?.layer.opacity = 0
                 imageView?.hidden = true
@@ -137,7 +136,6 @@ public class SimpleButton: UIButton {
                 if !self.state.contains(.Disabled) {
                     userInteractionEnabled = true
                 }
-                print("loading view set to hidden")
                 loadingView?.hidden = true
                 titleLabel?.layer.opacity = 1
                 imageView?.hidden = false
@@ -191,7 +189,8 @@ public class SimpleButton: UIButton {
     
     - parameter scale:    scale of button
     - parameter state:    determines at which state that scale applies
-    - parameter animated: determines if that change in scale should animate
+    - parameter animated: determines if that change in scale should animate. Default is `true`
+    - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
     */
     public func setScale(scale: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         buttonScales[state.rawValue] = SimpleButtonStateChangeValue(value: scale, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -203,7 +202,8 @@ public class SimpleButton: UIButton {
      
      - parameter color:    background color of button
      - parameter state:    determines at which state that background color applies
-     - parameter animated: determines if that change in background color should animate
+     - parameter animated: determines if that change in background color should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setBackgroundColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         backgroundColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -215,7 +215,8 @@ public class SimpleButton: UIButton {
      
      - parameter width:    border width of button
      - parameter state:    determines at which state that border width applies
-     - parameter animated: determines if that change in border width should animate
+     - parameter animated: determines if that change in border width should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setBorderWidth(width: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         borderWidths[state.rawValue] = SimpleButtonStateChangeValue(value: width, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -227,7 +228,8 @@ public class SimpleButton: UIButton {
      
      - parameter color:    border color of button
      - parameter state:    determines at which state that border color applies
-     - parameter animated: determines if that change in border color should animate
+     - parameter animated: determines if that change in border color should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setBorderColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         borderColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -239,7 +241,8 @@ public class SimpleButton: UIButton {
      
      - parameter radius:   corner radius of button
      - parameter state:    determines at which state that corner radius applies
-     - parameter animated: determines if that change in radius of the corners should animate
+     - parameter animated: determines if that change in radius of the corners should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setCornerRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         cornerRadii[state.rawValue] = SimpleButtonStateChangeValue(value: radius, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -251,7 +254,8 @@ public class SimpleButton: UIButton {
      
      - parameter color:    shadow color of button
      - parameter state:    determines at which state that shadow color applies
-     - parameter animated: determines if that change in shadow color should animate
+     - parameter animated: determines if that change in shadow color should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setShadowColor(color: UIColor, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         shadowColors[state.rawValue] = SimpleButtonStateChangeValue(value: color.CGColor, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -263,7 +267,8 @@ public class SimpleButton: UIButton {
      
      - parameter opacity:  shadow opacity of button
      - parameter state:    determines at which state that shadow opacity applies
-     - parameter animated: determines if that change in shadow opacity should animate
+     - parameter animated: determines if that change in shadow opacity should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setShadowOpacity(opacity: Float, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         shadowOpacities[state.rawValue] = SimpleButtonStateChangeValue(value: opacity, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -275,7 +280,8 @@ public class SimpleButton: UIButton {
      
      - parameter radius:   shadow radius of button
      - parameter state:    determines at which state that shadow radius applies
-     - parameter animated: determines if that change in shadow radius should animate
+     - parameter animated: determines if that change in shadow radius should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setShadowRadius(radius: CGFloat, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         shadowRadii[state.rawValue] = SimpleButtonStateChangeValue(value: radius, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
@@ -287,7 +293,8 @@ public class SimpleButton: UIButton {
      
      - parameter offset:   shadow offset of button
      - parameter state:    determines at which state that shadow offset applies
-     - parameter animated: determines if that change in shadow offset should animate
+     - parameter animated: determines if that change in shadow offset should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
      */
     public func setShadowOffset(offset: CGSize, forState state: UIControlState = .Normal, animated: Bool = true, animationDuration: NSTimeInterval? = nil) {
         shadowOffsets[state.rawValue] = SimpleButtonStateChangeValue(value: offset, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
