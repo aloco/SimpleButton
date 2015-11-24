@@ -19,10 +19,9 @@
 		A93CA2981AC2B91400BD5B22 /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */; };
 		A93DE0DE1BE8E20F00409A4B /* SimpleButtonControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DE0DD1BE8E20F00409A4B /* SimpleButtonControlState.swift */; };
 		A93DE0E01BE90C8200409A4B /* SimpleButtonStateChangeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93DE0DF1BE90C8200409A4B /* SimpleButtonStateChangeValue.swift */; };
-		A98449251BF4B991007E90C7 /* ExamplesTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98449241BF4B991007E90C7 /* ExamplesTwoViewController.swift */; };
-		A9C6EC7B1AD1A35900C4CB79 /* UpperCaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */; };
+		A97727951C04B3E400FDC7B4 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97727941C04B3E400FDC7B4 /* UIColorExtensions.swift */; };
+		A98449251BF4B991007E90C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98449241BF4B991007E90C7 /* ViewController.swift */; };
 		A9C97EEE1AC45CCF005C14E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */; };
-		A9C97EF01AC45D9F005C14E0 /* ExamplesOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93CA2541AC2B89300BD5B22 /* ExamplesOneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		A93CA24D1AC2B89300BD5B22 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93CA2511AC2B89300BD5B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A93CA2541AC2B89300BD5B22 /* ExamplesOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesOneViewController.swift; sourceTree = "<group>"; };
 		A93CA2591AC2B89300BD5B22 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A93CA25C1AC2B89300BD5B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A93CA2771AC2B8A800BD5B22 /* SimpleButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,8 +71,8 @@
 		A93CA2971AC2B91400BD5B22 /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
 		A93DE0DD1BE8E20F00409A4B /* SimpleButtonControlState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonControlState.swift; sourceTree = "<group>"; };
 		A93DE0DF1BE90C8200409A4B /* SimpleButtonStateChangeValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButtonStateChangeValue.swift; sourceTree = "<group>"; };
-		A98449241BF4B991007E90C7 /* ExamplesTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesTwoViewController.swift; sourceTree = "<group>"; };
-		A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpperCaseButton.swift; sourceTree = "<group>"; };
+		A97727941C04B3E400FDC7B4 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		A98449241BF4B991007E90C7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9C97EED1AC45CCF005C14E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +106,6 @@
 		4D032EBF1ADD84C800991630 /* Custom Button Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A9C6EC7A1AD1A35900C4CB79 /* UpperCaseButton.swift */,
 				A92045E51AD5803900401655 /* CustomButtons.swift */,
 			);
 			name = "Custom Button Classes";
@@ -155,13 +152,13 @@
 			isa = PBXGroup;
 			children = (
 				A93CA2521AC2B89300BD5B22 /* AppDelegate.swift */,
-				A93CA2541AC2B89300BD5B22 /* ExamplesOneViewController.swift */,
-				A98449241BF4B991007E90C7 /* ExamplesTwoViewController.swift */,
+				A98449241BF4B991007E90C7 /* ViewController.swift */,
 				A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */,
 				4D032EBF1ADD84C800991630 /* Custom Button Classes */,
 				A93CA2501AC2B89300BD5B22 /* Supporting Files */,
 				A93CA2591AC2B89300BD5B22 /* Images.xcassets */,
 				A93CA25B1AC2B89300BD5B22 /* LaunchScreen.xib */,
+				A97727941C04B3E400FDC7B4 /* UIColorExtensions.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -344,10 +341,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C6EC7B1AD1A35900C4CB79 /* UpperCaseButton.swift in Sources */,
 				A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */,
-				A9C97EF01AC45D9F005C14E0 /* ExamplesOneViewController.swift in Sources */,
-				A98449251BF4B991007E90C7 /* ExamplesTwoViewController.swift in Sources */,
+				A97727951C04B3E400FDC7B4 /* UIColorExtensions.swift in Sources */,
+				A98449251BF4B991007E90C7 /* ViewController.swift in Sources */,
 				A92045E61AD5803900401655 /* CustomButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

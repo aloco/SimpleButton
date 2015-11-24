@@ -149,7 +149,6 @@ public class SimpleButton: UIButton {
     
     required override public init(frame: CGRect) {
         super.init(frame: frame)
-        print("init frame")
         lockAnimatedUpdate = true
         configureButtonStyles()
         update()
@@ -158,7 +157,6 @@ public class SimpleButton: UIButton {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("init coder")
         lockAnimatedUpdate = true
         configureButtonStyles()
         update()
