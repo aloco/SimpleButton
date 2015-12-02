@@ -41,47 +41,47 @@ public class SimpleButton: UIButton {
     // MARK: State values with initial values
     private lazy var backgroundColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.backgroundColor?.CGColor {
-            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: false, animationDuration: self.defaultAnimationDuration)]
+            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
     
     private lazy var borderColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.layer.borderColor {
-            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: false, animationDuration: self.defaultAnimationDuration)]
+            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
 
     private lazy var buttonScales: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: 1.0, animated: false, animationDuration: self.defaultAnimationDuration)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: 1.0, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var borderWidths: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.borderWidth, animated: false, animationDuration: self.defaultAnimationDuration)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.borderWidth, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var cornerRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.cornerRadius, animated: false, animationDuration: self.defaultAnimationDuration)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.cornerRadius, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
     private lazy var shadowColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.layer.shadowColor {
-            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: false, animationDuration: self.defaultAnimationDuration)]
+            return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
 
     private lazy var shadowOpacities: [ControlState: SimpleButtonStateChangeValue<Float>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOpacity, animated: false, animationDuration: self.defaultAnimationDuration)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOpacity, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var shadowOffsets: [ControlState: SimpleButtonStateChangeValue<CGSize>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOffset, animated: false, animationDuration: self.defaultAnimationDuration)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOffset, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
 
     private lazy var shadowRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
-        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowRadius, animated: false, animationDuration: self.defaultAnimationDuration)]
+        return [UIControlState.Normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowRadius, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
 
     

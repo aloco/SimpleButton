@@ -12,10 +12,9 @@ Simple UIButton subclass with animated, state-aware attributes. Easy to subclass
 
 ## Usage
 
-Just create your own `SimpleButton` subclass and configure your button attributes by overriding `configureButtonStyles`. 
+Just create your own `SimpleButton` subclass and configure your button attributes by overriding `configureButtonStyles`.
 
 ```swift
-@IBDesignable
 class PrimaryButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
@@ -28,43 +27,43 @@ class PrimaryButton: SimpleButton {
     }
 }
 ```
-
-### Interface Builder Support
-
-Just set the new custom button class to a button in Interface Builder's property inspector.
-
-<center>
-![Sample](Resources/property_inspector.png)
-</center>
-
-Your buttons are even rendered live within Interface Builder. ✨
-Some attributes, like corner radius, border width and border color, can be set directly from within Interface Builder.
+For usage in Interfacebuilder, just use your `SimpleButton` subclass as custom class for each `UIButton` element. All defined styles are applied automatically.
 
 
-### Creating and configuring buttons from code
-
-You can also configure your button directly from code
+You can also configure your button without a subclass directly inline.
 
 ```swift
 let awesomeButton = SimpleButton(type:.Custom)
 awesomeButton.setBorderWidth(2.0, forState: .Normal)
 awesomeButton.setBorderColor(UIColor.redColor(), forState: .Highlighted)
+view.addSubview(awesomeButton)
+```
+## Animation
+Each state change of `SimpleButton` animates by default. Sometimes you need to define which state transition should animate and which should just switch immediately. Therefore you can control that behaviour with the `animated` and `animationDuration` parameters. 
+
+```
+setBorderWidth(4.0, forState: .Normal, animated: true, animationDuration: 0.2)
+setBorderWidth(8.0, forState: .Highlighted, animated: false)
+
+```
+This means, each state change to `.Normal` animates the `borderWidth` to `4.0` and each state change to `.Highlighted` changes instantly the `borderWidth` to `8.0` without animation.
+
+## Loading state
+
+`SimpleButton` adds his own `.Loading` state. You can toggle the state by setting `simpleButton.isLoading` to `true` or `false`. The button also shows an `UIActivityIndicator` instead of the title when switching into `.Loading`
+
+```
+simpleButton.setCornerRadius(20, forState: .Loading)
+simpleButton.isLoading = true
+
+```
+If you don´t like the default loading indicator, you can set your own `UIView` by doing
+```
+simpleButton.loadingView = CustomAwesomeLoadingView()
 ```
 
-### Change animation duration
-
-```swift
-awesomeButton.animationDuration = 0.3
-```
-Default is `0.1`
 
 ## Configurable attributes
-
-* `scale`
-* `backgroundColor`
-* `borderWidth`
-* `borderColor`
-* `cornerRadius`
 
 
 ### scale
