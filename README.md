@@ -1,10 +1,10 @@
-# Simple Button
+# SimpleButton
 
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
 [![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=master)](https://travis-ci.org/aloco/SimpleButton)
 ![Swift 2](https://img.shields.io/badge/Swift-2-orange.svg)
 
-Simple UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!
+UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!
 
 <center>
 ![Sample](Resources/example.gif)
@@ -27,30 +27,32 @@ class PrimaryButton: SimpleButton {
     }
 }
 ```
-For usage in Interfacebuilder, just use your `SimpleButton` subclass as custom class for each `UIButton` element. All defined styles are applied automatically.
+For usage in Interfacebuilder, just use your `SimpleButton` subclass as custom class for any `UIButton` element. All defined styles gets applied automatically.
 
 
 You can also configure your button without a subclass directly inline.
 
 ```swift
-let awesomeButton = SimpleButton(type:.Custom)
+let awesomeButton = SimpleButton(type: .Custom)
 awesomeButton.setBorderWidth(2.0, forState: .Normal)
 awesomeButton.setBorderColor(UIColor.redColor(), forState: .Highlighted)
 view.addSubview(awesomeButton)
 ```
-## Animation
-Each state change of `SimpleButton` animates by default. Sometimes you need to define which state transition should animate and which should just switch immediately. Therefore you can control that behaviour with the `animated` and `animationDuration` parameters. 
+Please checkout the example project for a detailed usage demo.
+### Animation
+Each state change of `SimpleButton` animates by default. Sometimes you need to define which state transition should animate and which should happen immediately. Therefore you can control that behaviour with the `animated` and `animationDuration` parameters. 
 
 ```
 setBorderWidth(4.0, forState: .Normal, animated: true, animationDuration: 0.2)
 setBorderWidth(8.0, forState: .Highlighted, animated: false)
 
 ```
-This means, each state change to `.Normal` animates the `borderWidth` to `4.0` and each state change to `.Highlighted` changes instantly the `borderWidth` to `8.0` without animation.
+This means, every state change to `.Normal` animates the `borderWidth` to `4.0`. 
+Every state change to `.Highlighted` changes instantly the `borderWidth` to `8.0` without animation.
 
-## Loading state
+### Loading state
 
-`SimpleButton` adds his own `.Loading` state. You can toggle the state by setting `simpleButton.isLoading` to `true` or `false`. The button also shows an `UIActivityIndicator` instead of the title when switching into `.Loading`
+`SimpleButton` has a custom `.Loading` state. You can toggle this state by setting `simpleButton.isLoading`. The button shows an `UIActivityIndicator` instead of the title when adding the `.Loading` state.
 
 ```
 simpleButton.setCornerRadius(20, forState: .Loading)
@@ -69,37 +71,50 @@ simpleButton.loadingView = CustomAwesomeLoadingView()
 ### scale
 
 ```swift
-simpleButton.setScale(0.98, forState: .Highlighted)
-simpleButton.setScale(0.80, forState: .Disabled)
+public func setScale(scale: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### backgroundColor
 
 ```swift
-simpleButton.setBackgroundColor(UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0), forState: .Normal)
-simpleButton.setBackgroundColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), forState: .Highlighted)
-simpleButton.setBackgroundColor(UIColor.grayColor(), forState: .Disabled)
+public func setBackgroundColor(color: UIColor, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### borderWidth
 
 ```swift
-simpleButton.setBorderWidth(4.0, forState: .Normal)
-simpleButton.setBorderWidth(2.0, forState: .Highlighted)
+public func setBorderWidth(width: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### borderColor
 
 ```swift
-simpleButton.setBorderWidth(4.0, forState: .Normal)
-simpleButton.setBorderColor(UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1.0), forState: .Normal)
-simpleButton.setBorderColor(UIColor(red: 149/255, green: 165/255, blue: 166/255, alpha: 1.0), forState: .Highlighted)
+public func setBorderColor(color: UIColor, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### cornerRadius
 ```swift
-simpleButton.setCornerRadius(10, forState: .Normal)
-simpleButton.setCornerRadius(20, forState: .Highlighted)
+public func setCornerRadius(radius: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+```
+
+### shadowColor
+```swift
+public func setShadowColor(color: UIColor, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+```
+
+### shadowOpacity
+```swift
+public func setShadowOpacity(opacity: Float, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+```
+
+### shadowRadius
+```swift
+public func setShadowRadius(radius: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+```
+
+### shadowOffset
+```swift
+public func setShadowOffset(offset: CGSize, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ## Installation

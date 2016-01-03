@@ -91,8 +91,8 @@ class LoadingButton: SimpleButton {
 class DisabledButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor.peterRiverColor(), forState: .Normal)
-        setBackgroundColor(UIColor.belizeHoleColor(), forState: .Highlighted)
+        setBackgroundColor(UIColor.alizarinColor(), forState: .Normal)
+        setBackgroundColor(UIColor.pomergranateColor(), forState: .Highlighted)
         setTitle("PRESS TO DISABLE BUTTON", forState: .Normal)
         setTitle("BUTTON DISABLED", forState: .Disabled)
         setBackgroundColor(UIColor.silverColor(), forState: .Disabled)
