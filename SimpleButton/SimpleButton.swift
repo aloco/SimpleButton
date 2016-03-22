@@ -177,7 +177,6 @@ public class SimpleButton: UIButton {
     To define various styles for specific button states, override this function and set attributes for specific states (e.g. setBackgroundColor(UIColor.blueColor(), forState: .Highlighted, animated: true))
     */
     public func configureButtonStyles() {
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     // MARK: Setter for state attributes
