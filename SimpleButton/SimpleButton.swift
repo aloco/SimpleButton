@@ -171,6 +171,14 @@ public class SimpleButton: UIButton {
         lockAnimatedUpdate = false
     }
     
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        lockAnimatedUpdate = true
+        configureButtonStyles()
+        update()
+        lockAnimatedUpdate = false
+    }
+    
     // MARK: Configuration
     
     /**

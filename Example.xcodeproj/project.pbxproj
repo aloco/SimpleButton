@@ -22,6 +22,7 @@
 		A97727951C04B3E400FDC7B4 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97727941C04B3E400FDC7B4 /* UIColorExtensions.swift */; };
 		A98449251BF4B991007E90C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98449241BF4B991007E90C7 /* ViewController.swift */; };
 		A9C97EEE1AC45CCF005C14E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C97EEC1AC45CCF005C14E0 /* Main.storyboard */; };
+		BC95C8DB1D01790C00BC474C /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95C8DA1D01790C00BC474C /* DesignableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		A97727941C04B3E400FDC7B4 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		A98449241BF4B991007E90C7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A9C97EED1AC45CCF005C14E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BC95C8DA1D01790C00BC474C /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				A92045E51AD5803900401655 /* CustomButtons.swift */,
+				BC95C8DA1D01790C00BC474C /* DesignableButton.swift */,
 			);
 			name = "Custom Button Classes";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				A93CA2531AC2B89300BD5B22 /* AppDelegate.swift in Sources */,
 				A97727951C04B3E400FDC7B4 /* UIColorExtensions.swift in Sources */,
 				A98449251BF4B991007E90C7 /* ViewController.swift in Sources */,
+				BC95C8DB1D01790C00BC474C /* DesignableButton.swift in Sources */,
 				A92045E61AD5803900401655 /* CustomButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
