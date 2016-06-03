@@ -2,7 +2,7 @@
 
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
 [![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=master)](https://travis-ci.org/aloco/SimpleButton)
-![Swift 2](https://img.shields.io/badge/Swift-2.1-orange.svg)
+![Swift 2](https://img.shields.io/badge/Swift-2.2-orange.svg)
 
 UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!
 
@@ -39,6 +39,11 @@ awesomeButton.setBorderColor(UIColor.redColor(), forState: .Highlighted)
 view.addSubview(awesomeButton)
 ```
 Please checkout the example project for a detailed usage demo.
+
+#### @IBDesignable
+
+Have a look on [DesignableButton](Example/DesignableButton.swift) subclass within the Example Project for `@IBDesignable` usage.
+
 ### Animation
 Each state change of `SimpleButton` animates by default. Sometimes you need to define which state transition should animate and which should happen immediately. Therefore you can control that behaviour with the `animated` and `animationDuration` parameters. 
 
