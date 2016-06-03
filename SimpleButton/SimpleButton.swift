@@ -149,30 +149,25 @@ public class SimpleButton: UIButton {
     
     required override public init(frame: CGRect) {
         super.init(frame: frame)
-        lockAnimatedUpdate = true
-        configureButtonStyles()
-        update()
-        lockAnimatedUpdate = false
+        setup()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        lockAnimatedUpdate = true
-        configureButtonStyles()
-        update()
-        lockAnimatedUpdate = false
+        setup()
     }
 
     public override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        lockAnimatedUpdate = true
-        configureButtonStyles()
-        update()
-        lockAnimatedUpdate = false
+        setup()
     }
     
     public override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
+    }
+    
+    private func setup() {
         lockAnimatedUpdate = true
         configureButtonStyles()
         update()
