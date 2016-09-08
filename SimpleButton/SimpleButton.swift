@@ -35,7 +35,7 @@ public class SimpleButton: UIButton {
     
     /// used to determine the `from` value of any animation
     private var sourceLayer: CALayer {
-        return (layer.presentationLayer() ?? layer) as! CALayer
+        return (layer.presentationLayer() ?? layer) 
     }
     
     // MARK: State values with initial values
