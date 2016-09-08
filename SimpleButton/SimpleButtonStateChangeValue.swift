@@ -13,5 +13,5 @@ import Foundation
 struct SimpleButtonStateChangeValue<T> {
     let value: T
     let animated: Bool
-    let animationDuration: NSTimeInterval
+    let animationDuration: TimeInterval
 }

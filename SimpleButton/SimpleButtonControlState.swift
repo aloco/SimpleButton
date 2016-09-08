@@ -13,5 +13,5 @@ import Foundation
  */
 public struct SimpleButtonControlState {
     /// Indicates loading state of SimpleButton
-    public static let Loading: UIControlState = UIControlState(rawValue: 1 << 16)
+    public static let loading: UIControlState = UIControlState(rawValue: 1 << 16)
 }

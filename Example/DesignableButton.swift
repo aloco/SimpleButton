@@ -21,7 +21,7 @@ class DesignableButton: SimpleButton {
     
     @IBInspectable var shadow: Bool = false
     @IBInspectable var shadowColor: UIColor?
-    @IBInspectable var shadowOffset: CGSize = CGSizeZero
+    @IBInspectable var shadowOffset: CGSize = CGSize.zero
     @IBInspectable var shadowRadius: CGFloat = 0
     @IBInspectable var shadowOpacity: Float = 0
     
@@ -29,16 +29,16 @@ class DesignableButton: SimpleButton {
         super.configureButtonStyles()
         
         if let backgroundColorNormal = backgroundColorNormal {
-            setBackgroundColor(backgroundColorNormal, forState: .Normal)
+            setBackgroundColor(backgroundColorNormal, for: .normal)
         }
         if let backgroundColorHighlight = backgroundColorHighlight {
-            setBackgroundColor(backgroundColorHighlight, forState: .Highlighted)
+            setBackgroundColor(backgroundColorHighlight, for: .highlighted)
         }
         if let titleColorNormal = titleColorNormal {
-            setTitleColor(titleColorNormal, forState: .Normal)
+            setTitleColor(titleColorNormal, for: .normal)
         }
         if let titleColorHighlighted = titleColorHighlighted {
-            setTitleColor(titleColorHighlighted, forState: .Highlighted)
+            setTitleColor(titleColorHighlighted, for: .highlighted)
         }
         
         if shadow {

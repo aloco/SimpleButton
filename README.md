@@ -18,12 +18,12 @@ Just create your own `SimpleButton` subclass and configure your button attribute
 class PrimaryButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-		setBorderWidth(4.0, forState: .Normal)
-        setBackgroundColor(UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0), forState: .Normal)
-        setBackgroundColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), forState: .Highlighted)
-        setBorderColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), forState: .Normal)
-        setScale(0.98, forState: .Highlighted)
-        setTitleColor(UIColor.whiteColor(), forState: .Normal)
+		setBorderWidth(4.0, for: .Normal)
+        setBackgroundColor(UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0), for: .Normal)
+        setBackgroundColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), for: .Highlighted)
+        setBorderColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), for: .Normal)
+        setScale(0.98, for: .Highlighted)
+        setTitleColor(UIColor.whiteColor(), for: .Normal)
     }
 }
 ```
@@ -34,8 +34,8 @@ You can also configure your button without a subclass directly inline.
 
 ```swift
 let awesomeButton = SimpleButton(type: .Custom)
-awesomeButton.setBorderWidth(2.0, forState: .Normal)
-awesomeButton.setBorderColor(UIColor.redColor(), forState: .Highlighted)
+awesomeButton.setBorderWidth(2.0, for: .Normal)
+awesomeButton.setBorderColor(UIColor.redColor(), for: .Highlighted)
 view.addSubview(awesomeButton)
 ```
 Please checkout the example project for a detailed usage demo.
@@ -48,8 +48,8 @@ Have a look on [DesignableButton](Example/DesignableButton.swift) subclass withi
 Each state change of `SimpleButton` animates by default. Sometimes you need to define which state transition should animate and which should happen immediately. Therefore you can control that behaviour with the `animated` and `animationDuration` parameters. 
 
 ```
-setBorderWidth(4.0, forState: .Normal, animated: true, animationDuration: 0.2)
-setBorderWidth(8.0, forState: .Highlighted, animated: false)
+setBorderWidth(4.0, for: .Normal, animated: true, animationDuration: 0.2)
+setBorderWidth(8.0, for: .Highlighted, animated: false)
 
 ```
 This means, every state change to `.Normal` animates the `borderWidth` to `4.0`. 
@@ -57,10 +57,10 @@ Every state change to `.Highlighted` changes instantly the `borderWidth` to `8.0
 
 ### Loading state
 
-`SimpleButton` has a custom `.Loading` state. You can toggle this state by setting `simpleButton.isLoading`. The button shows an `UIActivityIndicator` instead of the title when adding the `.Loading` state.
+`SimpleButton` has a custom `Loading` state. You can toggle this state by setting `simpleButton.isLoading`. The button shows an `UIActivityIndicator` instead of the title when adding the `.Loading` state.
 
 ```
-simpleButton.setCornerRadius(20, forState: .Loading)
+simpleButton.setCornerRadius(20, for: .Loading)
 simpleButton.isLoading = true
 
 ```
@@ -76,50 +76,50 @@ simpleButton.loadingView = CustomAwesomeLoadingView()
 ### scale
 
 ```swift
-public func setScale(scale: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setScale(scale: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### backgroundColor
 
 ```swift
-public func setBackgroundColor(color: UIColor, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setBackgroundColor(color: UIColor, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### borderWidth
 
 ```swift
-public func setBorderWidth(width: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setBorderWidth(width: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### borderColor
 
 ```swift
-public func setBorderColor(color: UIColor, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setBorderColor(color: UIColor, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### cornerRadius
 ```swift
-public func setCornerRadius(radius: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setCornerRadius(radius: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### shadowColor
 ```swift
-public func setShadowColor(color: UIColor, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setShadowColor(color: UIColor, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### shadowOpacity
 ```swift
-public func setShadowOpacity(opacity: Float, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setShadowOpacity(opacity: Float, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### shadowRadius
 ```swift
-public func setShadowRadius(radius: CGFloat, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setShadowRadius(radius: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ### shadowOffset
 ```swift
-public func setShadowOffset(offset: CGSize, forState state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
+public func setShadowOffset(offset: CGSize, for state: UIControlState = default, animated: Bool = default, animationDuration: NSTimeInterval? = default)
 ```
 
 ## Installation
