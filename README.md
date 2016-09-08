@@ -1,8 +1,9 @@
 # SimpleButton
 
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
-[![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=master)](https://travis-ci.org/aloco/SimpleButton)
-![Swift 2](https://img.shields.io/badge/Swift-2.3-orange.svg)
+[![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=swift-3)](https://travis-ci.org/aloco/SimpleButton)
+![Swift 3](https://img.shields.io/badge/Swift-3-orange.svg)
+
 
 UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!
 
@@ -124,7 +125,7 @@ public func setShadowOffset(offset: CGSize, for state: UIControlState = default,
 
 ## Installation
 
-Note that SimpleButton is written in `swift 2.3` and may not be compatible with previous versions of swift. 
+Note that SimpleButton is written in `swift 3` and may not be compatible with previous versions of swift. 
 
 
 #### Carthage
