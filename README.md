@@ -1,7 +1,7 @@
 # SimpleButton
 
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
-[![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=swift-3)](https://travis-ci.org/aloco/SimpleButton)
+[![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=swift-3.0)](https://travis-ci.org/aloco/SimpleButton)
 ![Swift 3](https://img.shields.io/badge/Swift-3-orange.svg)
 
 
@@ -134,7 +134,7 @@ Note that SimpleButton is written in `swift 3` and may not be compatible with pr
 Add the following line to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
 ```
-github "aloco/SimpleButton"
+github "aloco/SimpleButton" "swift-3.0"
 ```
 
 Then run `carthage update`.
