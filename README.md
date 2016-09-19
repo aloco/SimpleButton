@@ -134,7 +134,7 @@ Note that SimpleButton is written in `swift 3` and may not be compatible with pr
 Add the following line to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
 ```
-github "aloco/SimpleButton" "swift-3.0"
+github "aloco/SimpleButton" ~> 3.0
 ```
 
 Then run `carthage update`.
