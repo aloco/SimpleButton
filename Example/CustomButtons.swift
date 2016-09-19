@@ -14,88 +14,88 @@ import SimpleButton
 class ScaleButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor.peterRiverColor(), forState: .Normal)
-        setTitle("SCALE", forState: .Normal)
-        setScale(1.0, forState: .Normal, animated: true, animationDuration: 0.25)
-        setScale(0.96, forState: .Highlighted, animated: true, animationDuration: 0.1)
+        setBackgroundColor(UIColor.peterRiverColor(), for: .normal)
+        setTitle("SCALE", for: .normal)
+        setScale(1.0, for: .normal, animated: true, animationDuration: 0.25)
+        setScale(0.96, for: .highlighted, animated: true, animationDuration: 0.1)
     }
 }
 
 class BackgroundColorButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor.peterRiverColor(), forState: .Normal, animated: true, animationDuration: 0.2)
-        setBackgroundColor(UIColor.belizeHoleColor(), forState: .Highlighted, animated: false)
-        setBackgroundColor(UIColor.nephritisColor(), forState: SimpleButtonControlState.Loading)
-        setTitle("BACKGROUND COLOR", forState: .Normal)
+        setBackgroundColor(UIColor.peterRiverColor(), for: .normal, animated: true, animationDuration: 0.2)
+        setBackgroundColor(UIColor.belizeHoleColor(), for: .highlighted, animated: false)
+        setBackgroundColor(UIColor.nephritisColor(), for: SimpleButtonControlState.loading)
+        setTitle("BACKGROUND COLOR", for: .normal)
     }
 }
 
 class BorderWidthButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor.alizarinColor(), forState: .Normal, animated: true)
-        setBorderColor(UIColor.pomergranateColor(), forState: .Normal, animated: true)
-        setTitle("BORDER WIDTH", forState: .Normal)
-        setBorderWidth(4.0, forState: .Normal, animated: true, animationDuration: 0.2)
-        setBorderWidth(8.0, forState: .Highlighted, animated: false)
+        setBackgroundColor(UIColor.alizarinColor(), for: .normal, animated: true)
+        setBorderColor(UIColor.pomergranateColor(), for: .normal, animated: true)
+        setTitle("BORDER WIDTH", for: .normal)
+        setBorderWidth(4.0, for: .normal, animated: true, animationDuration: 0.2)
+        setBorderWidth(8.0, for: .highlighted, animated: false)
     }
 }
 
 class BorderColorButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setTitleColor(UIColor.alizarinColor(), forState: .Normal)
-        setTitleColor(UIColor.pomergranateColor(), forState: .Highlighted)
-        setBorderWidth(6.0, forState: .Normal)
-        setBorderColor(UIColor.alizarinColor(), forState: .Normal, animationDuration: 0.3)
-        setBorderColor(UIColor.pomergranateColor(), forState: .Highlighted, animated: false)
-        setTitle("BORDER COLOR", forState: .Normal)
+        setTitleColor(UIColor.alizarinColor(), for: .normal)
+        setTitleColor(UIColor.pomergranateColor(), for: .highlighted)
+        setBorderWidth(6.0, for: .normal)
+        setBorderColor(UIColor.alizarinColor(), for: .normal, animationDuration: 0.3)
+        setBorderColor(UIColor.pomergranateColor(), for: .highlighted, animated: false)
+        setTitle("BORDER COLOR", for: .normal)
     }
 }
 
 class CornerRadiusButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor.peterRiverColor(), forState: .Normal, animated: true)
-        setTitle("RADIUS", forState: .Normal)
-        setCornerRadius(10.0, forState: .Normal, animated: true)
-        setCornerRadius(30.0, forState: .Highlighted, animated: true)
+        setBackgroundColor(UIColor.peterRiverColor(), for: .normal, animated: true)
+        setTitle("RADIUS", for: .normal)
+        setCornerRadius(10.0, for: .normal, animated: true)
+        setCornerRadius(30.0, for: .highlighted, animated: true)
     }
 }
 
 class ShadowButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setShadowRadius(10, forState: .Normal, animated: true)
-        setShadowRadius(3, forState: .Highlighted, animated: true)
-        setBackgroundColor(UIColor.alizarinColor(), forState: .Normal, animated: true)
-        setShadowColor(UIColor.asbestosColor(), forState: .Normal)
-        setShadowOpacity(1.0, forState: .Normal, animated: true)
-        setShadowOffset(CGSize(width: 0, height: 0), forState: .Normal, animated: true)
-        setTitle("SHADOW", forState: .Normal)
+        setShadowRadius(10, for: .normal, animated: true)
+        setShadowRadius(3, for: .highlighted, animated: true)
+        setBackgroundColor(UIColor.alizarinColor(), for: .normal, animated: true)
+        setShadowColor(UIColor.asbestosColor(), for: .normal)
+        setShadowOpacity(1.0, for: .normal, animated: true)
+        setShadowOffset(CGSize(width: 0, height: 0), for: .normal, animated: true)
+        setTitle("SHADOW", for: .normal)
     }
 }
 
 class LoadingButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor.peterRiverColor(), forState: .Normal)
-        setBackgroundColor(UIColor.belizeHoleColor(), forState: .Highlighted)
-        setBackgroundColor(UIColor.asbestosColor(), forState: SimpleButtonControlState.Loading)
-        setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        setTitle("PRESS TO START LOADING", forState: .Normal)
+        setBackgroundColor(UIColor.peterRiverColor(), for: .normal)
+        setBackgroundColor(UIColor.belizeHoleColor(), for: .highlighted)
+        setBackgroundColor(UIColor.asbestosColor(), for: SimpleButtonControlState.loading)
+        setTitleColor(UIColor.white, for: .normal)
+        setTitle("PRESS TO START LOADING", for: .normal)
     }
 }
 
 class DisabledButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
-        setBackgroundColor(UIColor.alizarinColor(), forState: .Normal)
-        setBackgroundColor(UIColor.pomergranateColor(), forState: .Highlighted)
-        setTitle("PRESS TO DISABLE BUTTON", forState: .Normal)
-        setTitle("BUTTON DISABLED", forState: .Disabled)
-        setBackgroundColor(UIColor.silverColor(), forState: .Disabled)
-        setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        setBackgroundColor(UIColor.alizarinColor(), for: .normal)
+        setBackgroundColor(UIColor.pomergranateColor(), for: .highlighted)
+        setTitle("PRESS TO DISABLE BUTTON", for: .normal)
+        setTitle("BUTTON DISABLED", for: .disabled)
+        setBackgroundColor(UIColor.silverColor(), for: .disabled)
+        setTitleColor(UIColor.white, for: .normal)
     }
 }

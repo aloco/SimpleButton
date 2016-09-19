@@ -19,24 +19,24 @@ class ViewController: UIViewController {
         // create SimpleButton from code
     }
     
-    @IBAction func disabledButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func disabledButtonTouchUpInside(_ sender: AnyObject) {
         
-        disabledButton.enabled = false
+        disabledButton.isEnabled = false
         
-        // Delay execution of my block for 2 seconds.
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(3) * NSEC_PER_SEC)), dispatch_get_main_queue()) {
-            self.disabledButton.enabled = true
+        // Delay execution of my block for 3 seconds.
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(3) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)) {
+            self.disabledButton.isEnabled = true
         }
     }
     
     
-    @IBAction func saveButtonTouchUpInside(sender: AnyObject) {
+    @IBAction func saveButtonTouchUpInside(_ sender: AnyObject) {
 
-        saveButton.loading = true
+        saveButton.isLoading = true
         
-        // Delay execution of my block for 2 seconds.
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(UInt64(3) * NSEC_PER_SEC)), dispatch_get_main_queue()) {
-            self.saveButton.loading = false
+        // Delay execution of my block for 3 seconds.
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(3) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)) {
+            self.saveButton.isLoading = false
         }
     }
 }
