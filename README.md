@@ -5,11 +5,13 @@
 ![Swift 3](https://img.shields.io/badge/Swift-3-orange.svg)
 
 
-UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!
+UIButton subclass with animated, state-aware attributes. Easy to subclass and configure! [Full API docs](http://aloco.github.io/SimpleButton/swift_output)
+
 
 <center>
 ![Sample](Resources/example.gif)
 </center>
+
 
 ## Usage
 
@@ -41,6 +43,7 @@ view.addSubview(awesomeButton)
 Note that you should use `UIButtonType.custom` to avoid undesired effects.
 
 Please checkout the example project for a detailed usage demo.
+
 
 #### @IBDesignable
 
@@ -74,55 +77,7 @@ simpleButton.loadingView = CustomAwesomeLoadingView()
 
 ## Configurable attributes
 
-
-### scale
-
-```swift
-public func setScale(scale: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### backgroundColor
-
-```swift
-public func setBackgroundColor(color: UIColor, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### borderWidth
-
-```swift
-public func setBorderWidth(width: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### borderColor
-
-```swift
-public func setBorderColor(color: UIColor, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### cornerRadius
-```swift
-public func setCornerRadius(radius: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### shadowColor
-```swift
-public func setShadowColor(color: UIColor, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### shadowOpacity
-```swift
-public func setShadowOpacity(opacity: Float, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### shadowRadius
-```swift
-public func setShadowRadius(radius: CGFloat, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
-
-### shadowOffset
-```swift
-public func setShadowOffset(offset: CGSize, for state: UIControlState = default, animated: Bool = default, animationDuration: TimeInterval? = default)
-```
+Take a look at the ```Setter for state attributes``` section of the [API Docs](http://aloco.github.io/SimpleButton/swift_output/Classes/SimpleButton.html#/Setter%20for%20state%20attributes) 
 
 ## Installation
 
