@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "SimpleButton"
-  s.version               = "3.0"
+  s.version               = "3.0.1"
   s.summary               = "Simple UIButton subclass with additional state change animations (e.g. backgroundColor)"
   s.description           = "Simple UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!"
   s.homepage              = "https://github.com/aloco/SimpleButton"
