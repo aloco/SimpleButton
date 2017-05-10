@@ -8,9 +8,9 @@
 UIButton subclass with animated, state-aware attributes. Easy to subclass and configure! [Full API docs](http://aloco.github.io/SimpleButton/swift_output)
 
 
-<center>
+
 ![Sample](Resources/example.gif)
-</center>
+
 
 
 ## Usage
