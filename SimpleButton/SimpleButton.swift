@@ -320,6 +320,7 @@ open class SimpleButton: UIButton {
     */
     fileprivate func update() {
         updateBackgroundColor()
+        updateLoadingColor()
         updateBorderColor()
         updateBorderWidth()
         updateCornerRadius()
@@ -356,7 +357,15 @@ open class SimpleButton: UIButton {
             layer.backgroundColor = stateChange.value
         }
     }
-    
+
+    fileprivate func updateLoadingColor() {
+        if let activityIndicatorView = loadingView as? UIActivityIndicatorView {
+            if let color = titleColor(for: state) ?? titleColor(for: .normal), activityIndicatorView.color != color {
+                activityIndicatorView.color = color
+            }
+        }
+    }
+
     fileprivate func updateBorderColor() {
         if let stateChange = borderColors[state.rawValue] ?? borderColors[UIControlState.normal.rawValue], layer.borderColor == nil || UIColor(cgColor: layer.borderColor!) != UIColor(cgColor: stateChange.value)  {
             if stateChange.animated && !lockAnimatedUpdate {
