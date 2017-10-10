@@ -126,6 +126,8 @@ open class SimpleButton: UIButton {
                     activityIndicator.startAnimating()
                     activityIndicator.hidesWhenStopped = false
                     loadingView = activityIndicator
+                }
+                if (loadingView!.superview == nil){
                     addSubview(loadingView!)
                 }
                 loadingView?.isHidden = false

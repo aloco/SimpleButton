@@ -48,6 +48,16 @@ class SimpleButtonTests: XCTestCase {
         XCTAssertEqual(button.backgroundColor, UIColor.red, "disabled backgroundColor doesn't match set color")
     }
     
+    func testCustomLoadingView () {
+        let button = SimpleButton(type: .custom)
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        button.loadingView = indicator
+        button.isLoading = true
+        XCTAssertNotNil(indicator.superview)
+        XCTAssertFalse(indicator.isHidden)
+        button.isLoading = false
+        XCTAssertTrue(indicator.isHidden)
+    }
     
     // MARK: BorderColor
     
