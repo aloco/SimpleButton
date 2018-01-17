@@ -1,10 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mxQ-Bh-zmZ">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mxQ-Bh-zmZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Examples-->
@@ -16,48 +21,48 @@
                         <viewControllerLayoutGuide type="bottom" id="u1v-g4-Npf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dUw-EP-3XF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3f-CL-nXX" customClass="BackgroundColorButton" customModule="Example">
-                                <rect key="frame" x="20" y="145" width="374" height="45"/>
+                                <rect key="frame" x="20" y="145" width="335" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="M7r-qC-Sy2"/>
                                 </constraints>
                                 <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t43-yN-ltM" customClass="ShadowButton" customModule="Example">
-                                <rect key="frame" x="217" y="80" width="177" height="45"/>
+                                <rect key="frame" x="197.5" y="80" width="157.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="h7r-bn-ygn"/>
                                 </constraints>
                                 <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-Ci-qgj" customClass="BorderColorButton" customModule="Example">
-                                <rect key="frame" x="20" y="210" width="374" height="45"/>
+                                <rect key="frame" x="20" y="210" width="335" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ey4-3l-cTN"/>
                                 </constraints>
                                 <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-us-q4x" customClass="BorderWidthButton" customModule="Example">
-                                <rect key="frame" x="141" y="303" width="253" height="45"/>
+                                <rect key="frame" x="130" y="297.5" width="225" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="x8Q-bv-FVf"/>
                                 </constraints>
                                 <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-3m-30Y" customClass="LoadingButton" customModule="Example" customModuleProvider="target">
-                                <rect key="frame" x="20" y="396" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.88831676140000004" green="0.88831676140000004" blue="0.88831676140000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="385" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.88831676140000004" green="0.88831676140000004" blue="0.88831676140000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="CL9-qh-C0V"/>
                                 </constraints>
@@ -67,8 +72,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXO-DR-JCt" customClass="DisabledButton" customModule="Example" customModuleProvider="target">
-                                <rect key="frame" x="20" y="456" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.90409958960000003" green="0.90409958960000003" blue="0.90409958960000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="445" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.90409958960000003" green="0.90409958960000003" blue="0.90409958960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="w03-xc-LeG"/>
                                 </constraints>
@@ -78,23 +83,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEo-df-f2Q" customClass="ScaleButton" customModule="Example">
-                                <rect key="frame" x="20" y="80" width="177" height="45"/>
+                                <rect key="frame" x="20" y="80" width="157.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="MMp-Pn-hhx"/>
                                 </constraints>
                                 <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWl-vM-4gd" customClass="CornerRadiusButton" customModule="Example">
-                                <rect key="frame" x="20" y="275" width="101" height="101"/>
+                                <rect key="frame" x="20" y="275" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="9SQ-w8-vxA"/>
                                     <constraint firstAttribute="height" constant="100" id="Wll-SE-JMH"/>
                                     <constraint firstAttribute="width" secondItem="BWl-vM-4gd" secondAttribute="height" multiplier="1:1" id="yfa-Tv-4Mc"/>
                                 </constraints>
                                 <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -104,27 +109,27 @@
                                 </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKU-OU-R0v" customClass="DesignableButton" customModule="Example" customModuleProvider="target">
-                                <rect key="frame" x="20" y="516" width="374" height="40"/>
+                                <rect key="frame" x="20" y="505" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="uMx-U1-w8h"/>
                                 </constraints>
                                 <state key="normal" title="@IBDesignable Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorNormal">
-                                        <color key="value" red="0.96862745100000003" green="0.64313725489999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.96862745100000003" green="0.64313725489999995" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColorNormal">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColorHighlighted">
-                                        <color key="value" white="0.89866219579646023" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.89866220951080322" green="0.89866220951080322" blue="0.89866220951080322" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorHighlight">
-                                        <color key="value" red="0.87655353546142578" green="0.45854282379150391" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.83831632137298584" green="0.37662053108215332" blue="0.024419162422418594" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                                         <size key="value" width="0.0" height="2"/>
@@ -137,8 +142,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccu-yu-JJC" customClass="AttributedDisabledButton" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="20" y="567" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.90409958960000003" green="0.90409958960000003" blue="0.90409958960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tJn-NP-2Q6"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Button">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="disabledAttributedButtonTouchUpInside:" destination="mxQ-Bh-zmZ" eventType="touchUpInside" id="HRf-3E-rqi"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hKU-OU-R0v" secondAttribute="trailing" constant="20" id="0Qw-LO-dvq"/>
                             <constraint firstItem="BWl-vM-4gd" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="1ww-Fq-umZ"/>
@@ -150,8 +174,10 @@
                             <constraint firstItem="hKU-OU-R0v" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="9hr-03-iG2"/>
                             <constraint firstItem="8jA-3m-30Y" firstAttribute="top" secondItem="BWl-vM-4gd" secondAttribute="bottom" constant="20" id="BRm-Ey-Fst"/>
                             <constraint firstAttribute="trailing" secondItem="bXO-DR-JCt" secondAttribute="trailing" constant="20" id="CLY-1Z-EsZ"/>
+                            <constraint firstItem="ccu-yu-JJC" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leadingMargin" constant="4" id="EpQ-sD-H9g"/>
                             <constraint firstItem="t43-yN-ltM" firstAttribute="width" secondItem="DEo-df-f2Q" secondAttribute="width" id="HwB-ms-zDh"/>
                             <constraint firstItem="DEo-df-f2Q" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="JIp-RX-lF3"/>
+                            <constraint firstItem="ccu-yu-JJC" firstAttribute="top" secondItem="hKU-OU-R0v" secondAttribute="bottom" constant="22" id="P7I-Ue-0Hs"/>
                             <constraint firstItem="D3f-CL-nXX" firstAttribute="leading" secondItem="dUw-EP-3XF" secondAttribute="leading" constant="20" id="RQN-pA-1fY"/>
                             <constraint firstAttribute="trailing" secondItem="D3f-CL-nXX" secondAttribute="trailing" constant="20" id="Rbp-QB-xxc"/>
                             <constraint firstItem="HSm-us-q4x" firstAttribute="baseline" secondItem="BWl-vM-4gd" secondAttribute="baseline" id="Sma-99-qeQ"/>
@@ -165,13 +191,14 @@
                             <constraint firstAttribute="trailing" secondItem="8jA-3m-30Y" secondAttribute="trailing" constant="20" id="r4n-1a-OYa"/>
                             <constraint firstItem="bXO-DR-JCt" firstAttribute="top" secondItem="8jA-3m-30Y" secondAttribute="bottom" constant="20" id="r9P-ql-NXh"/>
                             <constraint firstItem="t43-yN-ltM" firstAttribute="leading" secondItem="DEo-df-f2Q" secondAttribute="trailing" constant="20" id="s7b-kO-nAM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ccu-yu-JJC" secondAttribute="trailing" constant="4" id="tQU-80-0Sc"/>
                             <constraint firstItem="D3f-CL-nXX" firstAttribute="top" secondItem="DEo-df-f2Q" secondAttribute="bottom" constant="20" id="xgP-GS-Aqz"/>
                             <constraint firstItem="BWl-vM-4gd" firstAttribute="width" secondItem="HSm-us-q4x" secondAttribute="width" multiplier="0.4" id="zEt-hE-RBx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Basic Examples" id="kdB-Fj-WDs"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="attributedDisabledButton" destination="ccu-yu-JJC" id="q8S-Ay-yfN"/>
                         <outlet property="disabledButton" destination="bXO-DR-JCt" id="aVW-LS-o0M"/>
                         <outlet property="saveButton" destination="8jA-3m-30Y" id="xrh-6x-eeo"/>
                     </connections>

@@ -99,3 +99,17 @@ class DisabledButton: SimpleButton {
         setTitleColor(UIColor.white, for: .normal)
     }
 }
+
+class AttributedDisabledButton: SimpleButton {
+    override func configureButtonStyles() {
+        super.configureButtonStyles()
+        setBackgroundColor(UIColor.alizarinColor(), for: .normal)
+        setBackgroundColor(UIColor.pomergranateColor(), for: .highlighted)
+        setAttributedText("PRESS TO DISABLE BUTTON", for: .normal)
+        setAttributedText("BUTTON DISABLED", for: .disabled)
+        setBackgroundColor(UIColor.silverColor(), for: .disabled)
+        setAttributedTextColor(.white, for: .normal)
+        setAttributedTextColor(.red, for: .disabled)
+        setAttributedTextSpacing(1.2)
+    }
+}

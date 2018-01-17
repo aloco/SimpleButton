@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var saveButton: LoadingButton!
     @IBOutlet weak var disabledButton: DisabledButton!
+    @IBOutlet weak var attributedDisabledButton: AttributedDisabledButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,16 @@ class ViewController: UIViewController {
         // Delay execution of my block for 3 seconds.
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(3) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)) {
             self.saveButton.isLoading = false
+        }
+    }
+    
+    @IBAction func disabledAttributedButtonTouchUpInside(_ sender: AnyObject) {
+        
+        attributedDisabledButton.isEnabled = false
+        
+        // Delay execution of my block for 3 seconds.
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(UInt64(3) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC)) {
+            self.attributedDisabledButton.isEnabled = true
         }
     }
 }

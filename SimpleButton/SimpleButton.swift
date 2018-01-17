@@ -83,6 +83,17 @@ open class SimpleButton: UIButton {
     fileprivate lazy var shadowRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
         return [UIControlState.normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowRadius, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
+    
+    fileprivate lazy var stateAttributes: [ControlState: [String:Any]] = {
+        return [:]
+    }()
+    
+    fileprivate lazy var attrTexts: [ControlState: SimpleButtonStateChangeValue<String>] = {
+        if let defaultText = self.titleLabel?.text {
+            return [UIControlState.normal.rawValue: SimpleButtonStateChangeValue(value: defaultText, animated: false, animationDuration: self.defaultAnimationDuration)]
+        }
+        return [:]
+    }()
 
     
     // MARK: Overrides
@@ -302,6 +313,52 @@ open class SimpleButton: UIButton {
     }
     
     /**
+     Sets the text color for a specific `UIControlState`
+     
+     - parameter color:    attributed text color of button
+     - parameter state:    determines at which state that border color applies
+     */
+    open func setAttributedTextColor(_ color: UIColor, for state: UIControlState = .normal) {
+        save(attribute: NSForegroundColorAttributeName, value: color, forState: state)
+        add(attribute: NSForegroundColorAttributeName, value: color, forState: state)
+    }
+    
+    /**
+     Sets the text spacing for a specific `UIControlState`
+     
+     - parameter spacing:    attributed text color of button
+     - parameter state:    determines at which state that border color applies
+     */
+    open func setAttributedTextSpacing(_ spacing: CGFloat, for state: UIControlState = .normal) {
+        save(attribute: NSKernAttributeName, value: spacing, forState: state)
+        add(attribute: NSKernAttributeName, value: spacing, forState: state)
+    }
+    
+    /**
+     Sets the attributed text new attribute for a specific `UIControlState`
+     
+     - parameter spacing:    attributed text color of button
+     - parameter state:    determines at which state that border color applies
+     */
+    open func setAttribute(attribute: String, value: Any, for state: UIControlState = .normal) {
+        save(attribute: attribute, value: value, forState: state)
+        add(attribute: attribute, value: value, forState: state)
+    }
+    
+    /**
+     Sets the attributed text for a specific `UIControlState`
+     
+     - parameter text:    attributed text of button
+     - parameter state:    determines at which state that text applies
+     */
+    open func setAttributedText(_ text: String, for state: UIControlState = .normal) {
+        attrTexts[state.rawValue] = SimpleButtonStateChangeValue(value: text, animated: false, animationDuration: self.defaultAnimationDuration)
+        let  attributedString = NSMutableAttributedString(string: text)
+        setAttributedTitle(attributedString, for: state)
+        refreshAttributes(forState: state)
+    }
+    
+    /**
     Sets the spacing between `titleLabel` and `imageView`
     
     - parameter spacing: spacing between `titleLabel` and `imageView`
@@ -411,7 +468,34 @@ open class SimpleButton: UIButton {
         }
     }
     
-
+    fileprivate func save(attribute: String, value: Any, forState state: UIControlState) {
+        if stateAttributes[state.rawValue] == nil {
+            stateAttributes[state.rawValue] = [:]
+        }
+        stateAttributes[state.rawValue]![attribute] = value
+    }
+    
+    fileprivate func add(attribute: String, value: Any, forState state: UIControlState) {
+        
+        let attributedString:NSMutableAttributedString
+        if let labelattributedText = self.attributedTitle(for: state) {
+            attributedString = NSMutableAttributedString(attributedString: labelattributedText)
+        } else if let textForState = attrTexts[state.rawValue] {
+            attributedString = NSMutableAttributedString(string: textForState.value)
+        } else {
+            attributedString = NSMutableAttributedString(string: titleLabel?.text ?? "")
+        }
+        attributedString.addAttribute(attribute, value: value, range: NSRange(location: 0, length: attributedString.string.count))
+        self.setAttributedTitle(attributedString, for: state)
+    }
+    
+    fileprivate func refreshAttributes(forState state: UIControlState) {
+        if let attributes = stateAttributes[state.rawValue] {
+            for attr in attributes {
+                add(attribute: attr.key, value: attr.value, forState: state)
+            }
+        }
+    }
     
     // MARK: Animation helper
     fileprivate func animate(layer: CALayer, from: AnyObject?, to: AnyObject, forKey key: String, duration: TimeInterval) {
