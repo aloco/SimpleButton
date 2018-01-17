@@ -84,7 +84,7 @@ open class SimpleButton: UIButton {
         return [UIControlState.normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowRadius, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
-    fileprivate lazy var stateAttributes: [ControlState: [String:Any]] = {
+    fileprivate lazy var stateAttributes: [ControlState: [NSAttributedStringKey:Any]] = {
         return [:]
     }()
     
@@ -319,8 +319,8 @@ open class SimpleButton: UIButton {
      - parameter state:    determines at which state that border color applies
      */
     open func setAttributedTextColor(_ color: UIColor, for state: UIControlState = .normal) {
-        save(attribute: NSForegroundColorAttributeName, value: color, forState: state)
-        add(attribute: NSForegroundColorAttributeName, value: color, forState: state)
+        save(attribute: NSAttributedStringKey.foregroundColor, value: color, forState: state)
+        add(attribute: NSAttributedStringKey.foregroundColor, value: color, forState: state)
     }
     
     /**
@@ -330,8 +330,8 @@ open class SimpleButton: UIButton {
      - parameter state:    determines at which state that border color applies
      */
     open func setAttributedTextSpacing(_ spacing: CGFloat, for state: UIControlState = .normal) {
-        save(attribute: NSKernAttributeName, value: spacing, forState: state)
-        add(attribute: NSKernAttributeName, value: spacing, forState: state)
+        save(attribute: NSAttributedStringKey.kern, value: spacing, forState: state)
+        add(attribute: NSAttributedStringKey.kern, value: spacing, forState: state)
     }
     
     /**
@@ -340,7 +340,7 @@ open class SimpleButton: UIButton {
      - parameter spacing:    attributed text color of button
      - parameter state:    determines at which state that border color applies
      */
-    open func setAttribute(attribute: String, value: Any, for state: UIControlState = .normal) {
+    open func setAttribute(attribute: NSAttributedStringKey, value: Any, for state: UIControlState = .normal) {
         save(attribute: attribute, value: value, forState: state)
         add(attribute: attribute, value: value, forState: state)
     }
@@ -468,14 +468,14 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func save(attribute: String, value: Any, forState state: UIControlState) {
+    fileprivate func save(attribute: NSAttributedStringKey, value: Any, forState state: UIControlState) {
         if stateAttributes[state.rawValue] == nil {
             stateAttributes[state.rawValue] = [:]
         }
         stateAttributes[state.rawValue]![attribute] = value
     }
     
-    fileprivate func add(attribute: String, value: Any, forState state: UIControlState) {
+    fileprivate func add(attribute: NSAttributedStringKey, value: Any, forState state: UIControlState) {
         
         let attributedString:NSMutableAttributedString
         if let labelattributedText = self.attributedTitle(for: state) {
