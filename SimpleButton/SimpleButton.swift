@@ -12,6 +12,18 @@ import UIKit
 open class SimpleButton: UIButton {
     
     typealias ControlState = UInt
+  
+    /// Background view.
+    open var backgroundView: UIView? {
+      didSet {
+        if let backgroundView = backgroundView {
+          backgroundView.isUserInteractionEnabled = false
+          addSubview(backgroundView)
+          sendSubview(toBack: backgroundView)
+          constrainFill(backgroundView)
+        }
+      }
+    }
     
     /// Loading view. UIActivityIndicatorView as default
     open var loadingView: UIView?
@@ -39,6 +51,13 @@ open class SimpleButton: UIButton {
     }
     
     // MARK: State values with initial values
+    fileprivate lazy var backgroundViews: [ControlState: SimpleButtonStateChangeValue<UIView>] = {
+      if let view = self.backgroundView {
+        return [UIControlState.normal.rawValue: SimpleButtonStateChangeValue(value: view, animated: true, animationDuration: self.defaultAnimationDuration)]
+      }
+      return [:]
+    }()
+
     fileprivate lazy var backgroundColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.backgroundColor?.cgColor {
             return [UIControlState.normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true, animationDuration: self.defaultAnimationDuration)]
@@ -196,6 +215,21 @@ open class SimpleButton: UIButton {
         buttonScales[state.rawValue] = SimpleButtonStateChangeValue(value: scale, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
         updateScale()
     }
+  
+  
+    /**
+     Sets the background view for a specific `UIControlState`
+     
+     - parameter view:     background view of button
+     - parameter state:    determines at which state that background view applies
+     - parameter animated: determines if that change in background view should animate. Default is `true`
+     - parameter animationDuration: set this value if you need a specific animation duration for this specific state change. If this is nil, the animation duration is taken from `defaultAnimationDuration`
+     */
+    open func setBackgroundView(_ view: UIView, for state: UIControlState = .normal, animated: Bool = true, animationDuration: TimeInterval? = nil) {
+      backgroundViews[state.rawValue] = SimpleButtonStateChangeValue(value: view, animated: animated, animationDuration: animationDuration ?? self.defaultAnimationDuration)
+      updateBackgroundView()
+    }
+
     
     /**
      Sets the background color for a specific `UIControlState`
@@ -319,6 +353,7 @@ open class SimpleButton: UIButton {
     - parameter lockAnimatedUpdate: set this to true to update without animation, even it´s defined in `SimpleButtonStateChange`. Used to set initial button attributes
     */
     fileprivate func update() {
+        updateBackgroundView()
         updateBackgroundColor()
         updateBorderColor()
         updateBorderWidth()
@@ -347,6 +382,25 @@ open class SimpleButton: UIButton {
             (stateChange.animated) && !lockAnimatedUpdate ? UIView.animate(withDuration: stateChange.animationDuration, animations: animations) : animations()
         }
     }
+  
+  fileprivate func updateBackgroundView() {
+    if let stateChange = backgroundViews[state.rawValue] ?? backgroundViews[UIControlState.normal.rawValue], backgroundView == nil || backgroundView != stateChange.value {
+      switch state {
+      case .normal:
+        print("normal")
+      case .highlighted:
+        print("highlighted")
+      default:
+        break
+      }
+      print(stateChange.value.tag)
+      if stateChange.animated && !lockAnimatedUpdate {
+        animate(layer: layer, from: sourceLayer.backgroundColor, to: stateChange.value, forKey: "backgroundView", duration: stateChange.animationDuration)
+      }
+      backgroundView?.removeFromSuperview()
+      backgroundView = stateChange.value
+    }
+  }
     
     fileprivate func updateBackgroundColor() {
         if let stateChange = backgroundColors[state.rawValue] ?? backgroundColors[UIControlState.normal.rawValue], layer.backgroundColor == nil || UIColor(cgColor: layer.backgroundColor!) != UIColor(cgColor: stateChange.value) {
@@ -421,11 +475,17 @@ open class SimpleButton: UIButton {
         animation.duration = duration
         layer.add(animation, forKey: key)
     }
-    
+  
     // MARK: Layout
     override open func layoutSubviews() {
         super.layoutSubviews()
         loadingView?.center = CGPoint(x: bounds.size.width  / 2,
             y: bounds.size.height / 2)
     }
+  
+  fileprivate func constrainFill(_ view: UIView) {
+    view.translatesAutoresizingMaskIntoConstraints = false
+    addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": view]))
+    addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": view]))
+  }
 }
