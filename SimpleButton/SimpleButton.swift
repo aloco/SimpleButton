@@ -385,15 +385,6 @@ open class SimpleButton: UIButton {
   
   fileprivate func updateBackgroundView() {
     if let stateChange = backgroundViews[state.rawValue] ?? backgroundViews[UIControlState.normal.rawValue], backgroundView == nil || backgroundView != stateChange.value {
-      switch state {
-      case .normal:
-        print("normal")
-      case .highlighted:
-        print("highlighted")
-      default:
-        break
-      }
-      print(stateChange.value.tag)
       if stateChange.animated && !lockAnimatedUpdate {
         animate(layer: layer, from: sourceLayer.backgroundColor, to: stateChange.value, forKey: "backgroundView", duration: stateChange.animationDuration)
       }
