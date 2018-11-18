@@ -248,10 +248,10 @@ class SimpleButtonTests: XCTestCase {
     func testStateChange() {
         let button = SimpleButton(type: .custom)
         
-        XCTAssertEqual(button.state, UIControlState.normal, "state should be set to Normal")
+        XCTAssertEqual(button.state, UIControl.State.normal, "state should be set to Normal")
         
         button.isHighlighted = true
-        XCTAssertEqual(button.state, UIControlState.highlighted, "state should be set to Highlighted")
+        XCTAssertEqual(button.state, UIControl.State.highlighted, "state should be set to Highlighted")
         
         button.isEnabled = false
         print(button.state)

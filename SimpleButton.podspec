@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.source                = { :git => "https://github.com/aloco/SimpleButton.git", :tag => s.version }
   s.requires_arc          = true
   s.source_files          = "SimpleButton/*.swift"
+  s.swift_version         = '4.2'
 end
