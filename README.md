@@ -2,7 +2,7 @@
 
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
 [![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=swift-3.0)](https://travis-ci.org/aloco/SimpleButton)
-![Swift 3](https://img.shields.io/badge/Swift-3-orange.svg)
+![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg)
 
 
 UIButton subclass with animated, state-aware attributes. Easy to subclass and configure! [Full API docs](http://aloco.github.io/SimpleButton/swift_output)
@@ -19,15 +19,15 @@ Just create your own `SimpleButton` subclass and configure your button attribute
 
 ```swift
 class PrimaryButton: SimpleButton {
-    override func configureButtonStyles() {
-        super.configureButtonStyles()
-		setBorderWidth(4.0, for: .normal)
-        setBackgroundColor(UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0), for: .normal)
-        setBackgroundColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), for: .highlighted)
-        setBorderColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), for: .normal)
-        setScale(0.98, for: .highlighted)
-        setTitleColor(UIColor.whiteColor(), for: .normal)
-    }
+	override func configureButtonStyles() {
+		super.configureButtonStyles()
+    	setBorderWidth(4.0, for: .normal)
+		setBackgroundColor(UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0), for: .normal)
+		setBackgroundColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), for: .highlighted)
+		setBorderColor(UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1.0), for: .normal)
+		setScale(0.98, for: .highlighted)
+		setTitleColor(UIColor.whiteColor(), for: .normal)
+	}
 }
 ```
 For usage in Interfacebuilder, just use your `SimpleButton` subclass as custom class for any `UIButton` element. All defined styles gets applied automatically.
@@ -55,7 +55,6 @@ Each state change of `SimpleButton` animates by default. Sometimes you need to d
 ```
 setBorderWidth(4.0, for: .normal, animated: true, animationDuration: 0.2)
 setBorderWidth(8.0, for: .highlighted, animated: false)
-
 ```
 This means, every state change to `.normal` animates the `borderWidth` to `4.0`. 
 Every state change to `.highlighted` changes instantly the `borderWidth` to `8.0` without animation.
@@ -67,13 +66,13 @@ Every state change to `.highlighted` changes instantly the `borderWidth` to `8.0
 ```
 simpleButton.setCornerRadius(20, for: SimpleButtonControlState.loading)
 simpleButton.isLoading = true
-
 ```
 If you don´t like the default loading indicator, you can set your own `UIView` by doing
 ```
 simpleButton.loadingView = CustomAwesomeLoadingView()
 ```
 
+Please note, when using a custom loading view don´t forget to handle the position and initial add to subview by yourself to fit your needs.
 
 ## Configurable attributes
 
@@ -81,7 +80,7 @@ Take a look at the ```Setter for state attributes``` section of the [API Docs](h
 
 ## Installation
 
-Note that SimpleButton is written in `swift 3` and may not be compatible with previous versions of swift. 
+Note that SimpleButton is written in `swift 4` and may not be compatible with previous versions of swift. 
 
 
 #### Carthage
@@ -89,7 +88,7 @@ Note that SimpleButton is written in `swift 3` and may not be compatible with pr
 Add the following line to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
 ```
-github "aloco/SimpleButton" ~> 3.0
+github "aloco/SimpleButton" ~> 4.0
 ```
 
 Then run `carthage update`.

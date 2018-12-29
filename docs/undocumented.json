@@ -1,68 +1,68 @@
 {
   "warnings": [
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 12,
       "symbol": "SimpleButton",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 90,
       "symbol": "SimpleButton.isEnabled",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 103,
       "symbol": "SimpleButton.isHighlighted",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 109,
       "symbol": "SimpleButton.isSelected",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 150,
       "symbol": "SimpleButton.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 155,
       "symbol": "SimpleButton.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 160,
       "symbol": "SimpleButton.prepareForInterfaceBuilder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 165,
       "symbol": "SimpleButton.awakeFromNib()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/Andi/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
+      "file": "/Users/andreastinocolobo/Applications/iOS/SimpleButton/SimpleButton/SimpleButton.swift",
       "line": 426,
       "symbol": "SimpleButton.layoutSubviews()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/Andi/Applications/iOS/SimpleButton"
+  "source_directory": "/Users/andreastinocolobo/Applications/iOS/SimpleButton"
 }

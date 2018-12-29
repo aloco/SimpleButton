@@ -15,7 +15,7 @@
       <div class="content-wrapper">
         <p><a href="index.html">SimpleButton Docs</a> (65% documented)</p>
         <p class="header-right"><a href="https://github.com/aloco/simplebutton"><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Faloco%2FSimpleButton%2Ftree%2Fswift%2D3%2E0%2Fapi%2Fdocsets%2FSimpleButton%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Faloco%2FSimpleButton%2Ftree%2Fswift%2D4%2E0%2Fapi%2Fdocsets%2FSimpleButton%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -37,7 +37,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Structs.html">Structs</a>
+            <a href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Structs/SimpleButtonControlState.html">SimpleButtonControlState</a>
@@ -50,20 +50,18 @@
         <section>
           <section class="section">
             
-            <a href='#simplebutton' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='simplebutton'>SimpleButton</h1>
+            <h1 id='simplebutton' class='heading'>SimpleButton</h1>
 
 <p><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible">
 <a href="https://travis-ci.org/aloco/SimpleButton"><img src="https://travis-ci.org/aloco/SimpleButton.svg?branch=swift-3.0" alt="Build Status"></a>
-<img src="https://img.shields.io/badge/Swift-3-orange.svg" alt="Swift 3"></p>
+<img src="https://img.shields.io/badge/Swift-4-orange.svg" alt="Swift 4"></p>
 
-<p>UIButton subclass with animated, state-aware attributes. Easy to subclass and configure!</p>
+<p>UIButton subclass with animated, state-aware attributes. Easy to subclass and configure! <a href="http://aloco.github.io/SimpleButton/swift_output">Full API docs</a></p>
 
-<p><center>
-<img src="Resources/example.gif" alt="Sample">
-</center></p>
-<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<p><img src="Resources/example.gif" alt="Sample"></p>
+<h2 id='usage' class='heading'>Usage</h2>
 
-<p>Just create your own <code>SimpleButton</code> subclass and configure your button attributes by overriding <code>configureButtonStyles</code>.</p>
+<p>Just create your own <code><a href="Classes/SimpleButton.html">SimpleButton</a></code> subclass and configure your button attributes by overriding <code>configureButtonStyles</code>.</p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">PrimaryButton</span><span class="p">:</span> <span class="kt">SimpleButton</span> <span class="p">{</span>
     <span class="k">override</span> <span class="kd">func</span> <span class="nf">configureButtonStyles</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">super</span><span class="o">.</span><span class="nf">configureButtonStyles</span><span class="p">()</span>
@@ -77,7 +75,7 @@
 <span class="p">}</span>
 </code></pre>
 
-<p>For usage in Interfacebuilder, just use your <code>SimpleButton</code> subclass as custom class for any <code>UIButton</code> element. All defined styles gets applied automatically.</p>
+<p>For usage in Interfacebuilder, just use your <code><a href="Classes/SimpleButton.html">SimpleButton</a></code> subclass as custom class for any <code>UIButton</code> element. All defined styles gets applied automatically.</p>
 
 <p>You can also configure your button without a subclass directly inline.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">awesomeButton</span> <span class="o">=</span> <span class="kt">SimpleButton</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">custom</span><span class="p">)</span>
@@ -89,73 +87,47 @@
 <p>Note that you should use <code>UIButtonType.custom</code> to avoid undesired effects.</p>
 
 <p>Please checkout the example project for a detailed usage demo.</p>
-<a href='#ibdesignable' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='ibdesignable'>@IBDesignable</h4>
+<h4 id='ibdesignable' class='heading'>@IBDesignable</h4>
 
 <p>Have a look on <a href="Example/DesignableButton.swift">DesignableButton</a> subclass within the Example Project for <code>@IBDesignable</code> usage.</p>
-<a href='#animation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='animation'>Animation</h3>
+<h3 id='animation' class='heading'>Animation</h3>
 
-<p>Each state change of <code>SimpleButton</code> animates by default. Sometimes you need to define which state transition should animate and which should happen immediately. Therefore you can control that behaviour with the <code>animated</code> and <code>animationDuration</code> parameters. </p>
+<p>Each state change of <code><a href="Classes/SimpleButton.html">SimpleButton</a></code> animates by default. Sometimes you need to define which state transition should animate and which should happen immediately. Therefore you can control that behaviour with the <code>animated</code> and <code>animationDuration</code> parameters. </p>
 <pre class="highlight plaintext"><code>setBorderWidth(4.0, for: .normal, animated: true, animationDuration: 0.2)
 setBorderWidth(8.0, for: .highlighted, animated: false)
-
 </code></pre>
 
 <p>This means, every state change to <code>.normal</code> animates the <code>borderWidth</code> to <code>4.0</code>. 
 Every state change to <code>.highlighted</code> changes instantly the <code>borderWidth</code> to <code>8.0</code> without animation.</p>
-<a href='#loading-state' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='loading-state'>Loading state</h3>
+<h3 id='loading-state' class='heading'>Loading state</h3>
 
-<p><code>SimpleButton</code> has a custom <code>loading</code> state. You can toggle this state by setting <code>simpleButton.isLoading</code>. The button shows an <code>UIActivityIndicator</code> instead of the title when adding the <code>loading</code> state.</p>
+<p><code><a href="Classes/SimpleButton.html">SimpleButton</a></code> has a custom <code>loading</code> state. You can toggle this state by setting <code>simpleButton.isLoading</code>. The button shows an <code>UIActivityIndicator</code> instead of the title when adding the <code>loading</code> state.</p>
 <pre class="highlight plaintext"><code>simpleButton.setCornerRadius(20, for: SimpleButtonControlState.loading)
 simpleButton.isLoading = true
-
 </code></pre>
 
-<p>If you don´t like the default loading indicator, you can set your own <code>UIView</code> by doing
-<code>
-simpleButton.loadingView = CustomAwesomeLoadingView()
-</code></p>
-<a href='#configurable-attributes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='configurable-attributes'>Configurable attributes</h2>
-<a href='#scale' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='scale'>scale</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setScale</span><span class="p">(</span><span class="nv">scale</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
+<p>If you don´t like the default loading indicator, you can set your own <code>UIView</code> by doing</p>
+<pre class="highlight plaintext"><code>simpleButton.loadingView = CustomAwesomeLoadingView()
 </code></pre>
-<a href='#backgroundcolor' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='backgroundcolor'>backgroundColor</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setBackgroundColor</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#borderwidth' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='borderwidth'>borderWidth</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setBorderWidth</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#bordercolor' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='bordercolor'>borderColor</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setBorderColor</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#cornerradius' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cornerradius'>cornerRadius</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setCornerRadius</span><span class="p">(</span><span class="nv">radius</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#shadowcolor' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='shadowcolor'>shadowColor</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setShadowColor</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#shadowopacity' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='shadowopacity'>shadowOpacity</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setShadowOpacity</span><span class="p">(</span><span class="nv">opacity</span><span class="p">:</span> <span class="kt">Float</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#shadowradius' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='shadowradius'>shadowRadius</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setShadowRadius</span><span class="p">(</span><span class="nv">radius</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#shadowoffset' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='shadowoffset'>shadowOffset</h3>
-<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setShadowOffset</span><span class="p">(</span><span class="nv">offset</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="k">for</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">UIControlState</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">animationDuration</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
-</code></pre>
-<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
 
-<p>Note that SimpleButton is written in <code>swift 3</code> and may not be compatible with previous versions of swift. </p>
-<a href='#carthage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='carthage'>Carthage</h4>
+<p>Please note, when using a custom loading view don´t forget to handle the position and initial add to subview by yourself to fit your needs.</p>
+<h2 id='configurable-attributes' class='heading'>Configurable attributes</h2>
+
+<p>Take a look at the <code>Setter for state attributes</code> section of the <a href="http://aloco.github.io/SimpleButton/swift_output/Classes/SimpleButton.html#/Setter%20for%20state%20attributes">API Docs</a> </p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Note that SimpleButton is written in <code>swift 4</code> and may not be compatible with previous versions of swift. </p>
+<h4 id='carthage' class='heading'>Carthage</h4>
 
 <p>Add the following line to your <a href="https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile">Cartfile</a>.</p>
-<pre class="highlight plaintext"><code>github "aloco/SimpleButton" "swift-3.0"
+<pre class="highlight plaintext"><code>github "aloco/SimpleButton" ~&gt; 4.0
 </code></pre>
 
 <p>Then run <code>carthage update</code>.</p>
-<a href='#manually' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='manually'>Manually</h4>
+<h4 id='manually' class='heading'>Manually</h4>
 
 <p>Just drag and drop the <code>SimpleButton.swift</code> file into  your project.</p>
-<a href='#contributing' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contributing'>Contributing</h2>
+<h2 id='contributing' class='heading'>Contributing</h2>
 
 <ul>
 <li>Create something awesome, make the code better, add some functionality,
@@ -169,8 +141,8 @@ whatever (this is the hardest part).</li>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://github.com/aloco/simplebutton" target="_blank" rel="external">Andreas</a>. All rights reserved. (Last updated: 2016-09-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://github.com/aloco/simplebutton" target="_blank" rel="external">Andreas</a>. All rights reserved. (Last updated: 2018-12-29)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
