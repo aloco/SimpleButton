@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode10
 script:
   # The pipefail option sets the exit status to the last commond with a non-zero status code, which would usually be xcodebuild
-  - set -o pipefail && xcodebuild test -project Example.xcodeproj -scheme SimpleButtonTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" | xcpretty
+  - set -o pipefail && xcodebuild test -project Example.xcodeproj -scheme SimpleButtonTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone x,OS=latest" | xcpretty
