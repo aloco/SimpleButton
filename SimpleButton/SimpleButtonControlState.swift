@@ -6,7 +6,7 @@
 //  Copyright © 2015 Andreas Tinoco Lobo. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
  *  Custom SimpleButton control state
