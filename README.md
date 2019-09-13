@@ -2,7 +2,7 @@
 
 ![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)
 [![Build Status](https://travis-ci.org/aloco/SimpleButton.svg?branch=swift-3.0)](https://travis-ci.org/aloco/SimpleButton)
-![Swift 4](https://img.shields.io/badge/Swift-4-orange.svg)
+![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg)
 
 
 UIButton subclass with animated, state-aware attributes. Easy to subclass and configure! [Full API docs](http://aloco.github.io/SimpleButton/swift_output)
@@ -80,15 +80,22 @@ Take a look at the ```Setter for state attributes``` section of the [API Docs](h
 
 ## Installation
 
-Note that SimpleButton is written in `swift 4` and may not be compatible with previous versions of swift. 
+Note that SimpleButton is written in `swift 5` and may not be compatible with previous versions of swift. 
 
+#### Swift Package Manager (Recommended)
+
+Add the following dependency to your `Package.swift` file:
+
+```
+.package(url: "https://github.com/aloco/SimpleButton.git", from: "5.0.0")
+```
 
 #### Carthage
 
 Add the following line to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
 ```
-github "aloco/SimpleButton" ~> 4.0
+github "aloco/SimpleButton" ~> 5.0
 ```
 
 Then run `carthage update`.
