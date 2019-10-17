@@ -87,7 +87,7 @@ Note that SimpleButton is written in `swift 5` and may not be compatible with pr
 Add the following dependency to your `Package.swift` file:
 
 ```
-.package(url: "https://github.com/aloco/SimpleButton.git", from: "5.0.0")
+.package(url: "https://github.com/allaboutapps/SimpleButton.git", from: "5.0.0")
 ```
 
 #### Carthage
@@ -95,7 +95,7 @@ Add the following dependency to your `Package.swift` file:
 Add the following line to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
 ```
-github "aloco/SimpleButton" ~> 5.0
+github "allaboutapps/SimpleButton" ~> 5.0
 ```
 
 Then run `carthage update`.
