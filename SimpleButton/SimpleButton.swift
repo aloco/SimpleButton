@@ -433,10 +433,12 @@ open class SimpleButton: UIButton {
     // MARK: LoadingView Constraints
     
     fileprivate func setLoadingViewConstraints() {
-        loadingView?.translatesAutoresizingMaskIntoConstraints = false
-        loadingView?.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        loadingView?.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        loadingView?.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        loadingView?.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        guard let loadingView = loadingView else { return }
+        NSLayoutConstraint.activate([
+            loadingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            loadingView.topAnchor.constraint(equalTo: self.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
     }
 }
