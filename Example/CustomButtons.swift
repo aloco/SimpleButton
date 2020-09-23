@@ -81,12 +81,12 @@ class LoadingButton: SimpleButton {
         setBackgroundColor(UIColor.peterRiverColor(), for: .normal)
         setBackgroundColor(UIColor.belizeHoleColor(), for: .highlighted)
         setBackgroundColor(UIColor.asbestosColor(), for: SimpleButtonControlState.loading)
-        loadingView = customLoading()
+        loadingView = createCustomLoadingView()
         setTitleColor(UIColor.white, for: .normal)
         setTitle("PRESS TO START LOADING", for: .normal)
     }
 
-    private func customLoading() -> UIView {
+    private func createCustomLoadingView() -> UIView {
         let view = UIView()
         let imageView = UIImageView(image: UIImage(named: "garten"))
 
