@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "SimpleButton",
     platforms: [
-        .iOS(.v8)
+        .iOS(.v11)
     ],
     products: [
         .library(name: "SimpleButton", targets: ["SimpleButton"])
