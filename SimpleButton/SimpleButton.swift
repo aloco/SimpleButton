@@ -29,57 +29,57 @@ open class SimpleButton: UIButton {
     }
     
     /// used to lock any animated state transition for initial setup
-    fileprivate var lockAnimatedUpdate: Bool = true
+    private var lockAnimatedUpdate: Bool = true
     
     /// used to determine the `from` value of any animation
-    fileprivate var sourceLayer: CALayer {
+    private var sourceLayer: CALayer {
         return (layer.presentation() ?? layer)
     }
     
     // MARK: State values with initial values
     
-    fileprivate lazy var backgroundColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
+    private lazy var backgroundColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.backgroundColor?.cgColor {
             return [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
     
-    fileprivate lazy var borderColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
+    private lazy var borderColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.layer.borderColor {
             return [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
     
-    fileprivate lazy var buttonScales: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
+    private lazy var buttonScales: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
         [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: 1.0, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
-    fileprivate lazy var borderWidths: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
+    private lazy var borderWidths: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
         [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.borderWidth, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
-    fileprivate lazy var cornerRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
+    private lazy var cornerRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
         [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.cornerRadius, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
-    fileprivate lazy var shadowColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
+    private lazy var shadowColors: [ControlState: SimpleButtonStateChangeValue<CGColor>] = {
         if let color = self.layer.shadowColor {
             return [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: color, animated: true, animationDuration: self.defaultAnimationDuration)]
         }
         return [:]
     }()
     
-    fileprivate lazy var shadowOpacities: [ControlState: SimpleButtonStateChangeValue<Float>] = {
+    private lazy var shadowOpacities: [ControlState: SimpleButtonStateChangeValue<Float>] = {
         [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOpacity, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
-    fileprivate lazy var shadowOffsets: [ControlState: SimpleButtonStateChangeValue<CGSize>] = {
+    private lazy var shadowOffsets: [ControlState: SimpleButtonStateChangeValue<CGSize>] = {
         [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowOffset, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
-    fileprivate lazy var shadowRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
+    private lazy var shadowRadii: [ControlState: SimpleButtonStateChangeValue<CGFloat>] = {
         [UIControl.State.normal.rawValue: SimpleButtonStateChangeValue(value: self.layer.shadowRadius, animated: true, animationDuration: self.defaultAnimationDuration)]
     }()
     
@@ -117,33 +117,26 @@ open class SimpleButton: UIButton {
     /// If set to `true`, SimpleButton shows `loadingView` and hides the default `titleLabel` and `imageView`
     open var isLoading: Bool = false {
         didSet {
-            if isLoading {
-                isUserInteractionEnabled = false
-                if loadingView == nil {
-                    let activityIndicator = UIActivityIndicatorView(style: .white)
-                    activityIndicator.startAnimating()
-                    activityIndicator.hidesWhenStopped = false
-                    loadingView = activityIndicator
+            DispatchQueue.main.async {
+                if self.isLoading {
+                    
+                    if self.loadingView == nil {
+                        self.setDefaultLoadingView()
+                    }
+                    self.isUserInteractionEnabled = false
+                    self.showLoadingView(animaded: true)
+                    
+                } else {
+                    
+                    if !self.state.contains(.disabled) {
+                        self.isUserInteractionEnabled = true
+                    }
+                    self.hideLoadingView(animaded: true)
+                    
                 }
                 
-                if loadingView!.superview == nil {
-                    addSubview(loadingView!)
-                    setLoadingViewConstraints()
-                }
-                
-                loadingView?.isHidden = false
-                titleLabel?.layer.opacity = 0
-                imageView?.isHidden = true
+                self.update()
             }
-            else {
-                if !state.contains(.disabled) {
-                    isUserInteractionEnabled = true
-                }
-                loadingView?.isHidden = true
-                titleLabel?.layer.opacity = 1
-                imageView?.isHidden = false
-            }
-            update()
         }
     }
     
@@ -169,7 +162,7 @@ open class SimpleButton: UIButton {
         setup()
     }
     
-    fileprivate func setup() {
+    private func setup() {
         lockAnimatedUpdate = true
         configureButtonStyles()
         update()
@@ -319,7 +312,7 @@ open class SimpleButton: UIButton {
      
      - parameter lockAnimatedUpdate: set this to true to update without animation, even it´s defined in `SimpleButtonStateChange`. Used to set initial button attributes
      */
-    fileprivate func update() {
+    private func update() {
         updateBackgroundColor()
         updateBorderColor()
         updateBorderWidth()
@@ -331,7 +324,7 @@ open class SimpleButton: UIButton {
         updateShadowRadius()
     }
     
-    fileprivate func updateCornerRadius() {
+    private func updateCornerRadius() {
         if let stateChange = cornerRadii[state.rawValue] ?? cornerRadii[UIControl.State.normal.rawValue], stateChange.value != layer.cornerRadius {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: sourceLayer.cornerRadius as AnyObject?, to: stateChange.value as AnyObject, forKey: "cornerRadius", duration: stateChange.animationDuration)
@@ -340,7 +333,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateScale() {
+    private func updateScale() {
         if let stateChange = buttonScales[state.rawValue] ?? buttonScales[UIControl.State.normal.rawValue], transform.a != stateChange.value, transform.b != stateChange.value {
             let animations = {
                 self.transform = CGAffineTransform(scaleX: stateChange.value, y: stateChange.value)
@@ -349,7 +342,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateBackgroundColor() {
+    private func updateBackgroundColor() {
         if let stateChange = backgroundColors[state.rawValue] ?? backgroundColors[UIControl.State.normal.rawValue], layer.backgroundColor == nil || UIColor(cgColor: layer.backgroundColor!) != UIColor(cgColor: stateChange.value) {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: sourceLayer.backgroundColor, to: stateChange.value, forKey: "backgroundColor", duration: stateChange.animationDuration)
@@ -358,7 +351,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateBorderColor() {
+    private func updateBorderColor() {
         if let stateChange = borderColors[state.rawValue] ?? borderColors[UIControl.State.normal.rawValue], layer.borderColor == nil || UIColor(cgColor: layer.borderColor!) != UIColor(cgColor: stateChange.value) {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: sourceLayer.borderColor, to: stateChange.value, forKey: "borderColor", duration: stateChange.animationDuration)
@@ -367,7 +360,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateBorderWidth() {
+    private func updateBorderWidth() {
         if let stateChange = borderWidths[state.rawValue] ?? borderWidths[UIControl.State.normal.rawValue], stateChange.value != layer.borderWidth {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: sourceLayer.borderWidth as AnyObject?, to: stateChange.value as AnyObject, forKey: "borderWidth", duration: stateChange.animationDuration)
@@ -376,7 +369,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateShadowOffset() {
+    private func updateShadowOffset() {
         if let stateChange = shadowOffsets[state.rawValue] ?? shadowOffsets[UIControl.State.normal.rawValue], stateChange.value != layer.shadowOffset {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: NSValue(cgSize: sourceLayer.shadowOffset), to: NSValue(cgSize: stateChange.value), forKey: "shadowOffset", duration: stateChange.animationDuration)
@@ -385,7 +378,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateShadowColor() {
+    private func updateShadowColor() {
         if let stateChange = shadowColors[state.rawValue] ?? shadowColors[UIControl.State.normal.rawValue], layer.shadowColor == nil || UIColor(cgColor: layer.shadowColor!) != UIColor(cgColor: stateChange.value) {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: sourceLayer.shadowColor, to: stateChange.value, forKey: "shadowColor", duration: stateChange.animationDuration)
@@ -394,7 +387,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateShadowRadius() {
+    private func updateShadowRadius() {
         if let stateChange = shadowRadii[state.rawValue] ?? shadowRadii[UIControl.State.normal.rawValue], stateChange.value != layer.shadowRadius {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: sourceLayer.shadowRadius as AnyObject?, to: stateChange.value as AnyObject, forKey: "shadowRadius", duration: stateChange.animationDuration)
@@ -403,7 +396,7 @@ open class SimpleButton: UIButton {
         }
     }
     
-    fileprivate func updateShadowOpacity() {
+    private func updateShadowOpacity() {
         if let stateChange = shadowOpacities[state.rawValue] ?? shadowOpacities[UIControl.State.normal.rawValue], stateChange.value != layer.shadowOpacity {
             if stateChange.animated, !lockAnimatedUpdate {
                 animate(layer: layer, from: sourceLayer.shadowOpacity as AnyObject?, to: stateChange.value as AnyObject, forKey: "shadowOpacity", duration: stateChange.animationDuration)
@@ -414,7 +407,7 @@ open class SimpleButton: UIButton {
     
     // MARK: Animation helper
     
-    fileprivate func animate(layer: CALayer, from: AnyObject?, to: AnyObject, forKey key: String, duration: TimeInterval) {
+    private func animate(layer: CALayer, from: AnyObject?, to: AnyObject, forKey key: String, duration: TimeInterval) {
         let animation = CABasicAnimation()
         animation.fromValue = from
         animation.toValue = to
@@ -430,15 +423,71 @@ open class SimpleButton: UIButton {
                                       y: bounds.size.height / 2)
     }
     
-    // MARK: LoadingView Constraints
+    // MARK: - LoadingView
     
-    fileprivate func setLoadingViewConstraints() {
+    private func setDefaultLoadingView() {
+        let activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = false
+        activityIndicator.alpha = 0
+        loadingView = activityIndicator
+    }
+    
+    private func addLoadingViewAsSubView() {
         guard let loadingView = loadingView else { return }
+        
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(loadingView)
+        
         NSLayoutConstraint.activate([
-            loadingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            loadingView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            loadingView.topAnchor.constraint(equalTo: self.topAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            trailingAnchor.constraint(equalTo: loadingView.trailingAnchor, constant: contentEdgeInsets.right),
+            loadingView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: contentEdgeInsets.left),
+            loadingView.topAnchor.constraint(equalTo: topAnchor, constant: contentEdgeInsets.top),
+            bottomAnchor.constraint(equalTo: loadingView.bottomAnchor, constant: contentEdgeInsets.bottom)
         ])
+        layoutIfNeeded()
+    }
+    
+    private func removeLoadingViewAsSubView() {
+        loadingView?.removeFromSuperview()
+        layoutIfNeeded()
+    }
+    
+    private func showLoadingView(animaded: Bool) {
+        let animation = { [weak self] in
+            self?.loadingView?.alpha = 1
+            self?.titleLabel?.layer.opacity = 0
+            self?.imageView?.alpha = 0
+        }
+        
+        if loadingView?.superview == nil {
+            addLoadingViewAsSubView()
+            loadingView?.alpha = 0
+        }
+        
+        if animaded {
+            loadingView?.alpha = 0
+            UIView.animate(withDuration: defaultAnimationDuration, animations: animation)
+        } else {
+            animation()
+        }
+    }
+    
+    private func hideLoadingView(animaded: Bool) {
+        let animation = { [weak self] in
+            self?.loadingView?.alpha = 0
+            self?.titleLabel?.layer.opacity = 2
+            self?.imageView?.alpha = 1
+        }
+        let completion: (Bool) -> Void = { [weak self] _ in
+            self?.removeLoadingViewAsSubView()
+        }
+        
+        if animaded {
+            UIView.animate(withDuration: defaultAnimationDuration, animations: animation, completion: completion)
+        } else {
+            animation()
+            completion(true)
+        }
     }
 }
