@@ -9,8 +9,6 @@
 import Foundation
 import SimpleButton
 
-
-
 class ScaleButton: SimpleButton {
     override func configureButtonStyles() {
         super.configureButtonStyles()
@@ -83,8 +81,24 @@ class LoadingButton: SimpleButton {
         setBackgroundColor(UIColor.peterRiverColor(), for: .normal)
         setBackgroundColor(UIColor.belizeHoleColor(), for: .highlighted)
         setBackgroundColor(UIColor.asbestosColor(), for: SimpleButtonControlState.loading)
+        loadingView = createCustomLoadingView()
         setTitleColor(UIColor.white, for: .normal)
         setTitle("PRESS TO START LOADING", for: .normal)
+    }
+
+    private func createCustomLoadingView() -> UIView {
+        let view = UIView()
+        let imageView = UIImageView(image: UIImage(named: "garten"))
+
+        view.addSubview(imageView)
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        view.backgroundColor = .red
+
+        return view
     }
 }
 
